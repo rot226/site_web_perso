@@ -179,7 +179,9 @@ nav a:hover {
 }
 .hero-img img {
     border-radius: 50%;
-    max-width: 220px;
+    width: min(220px, 60vw);
+    height: auto;
+    aspect-ratio: 1072 / 1280;
     border: 4px solid var(--accent-color);
 }
 
