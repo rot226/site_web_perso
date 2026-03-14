@@ -245,6 +245,14 @@ main section li {
     line-height: 1.55;
 }
 
+
+/* Fallback sans JS: mettre en évidence la section ciblée sur la page mono-section */
+main section:target {
+    scroll-margin-top: 6.5rem;
+    outline: 2px solid rgba(29, 161, 242, 0.6);
+    outline-offset: 0.4rem;
+}
+
 /* Contact form */
 main section > form {
     width: min(100%, 44rem);
