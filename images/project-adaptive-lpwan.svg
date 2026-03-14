@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Adaptive LPWAN algorithm loop</title>
+  <desc id="desc">Control loop showing sensing, adaptation and optimization for LPWAN communication.</desc>
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#102843"/>
+      <stop offset="100%" stop-color="#0b1628"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L8,4 L0,8 z" fill="#9be0ff"/>
+    </marker>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg3)" rx="28"/>
+  <g fill="#2ca6ff" stroke="#d2f2ff" stroke-width="2">
+    <circle cx="220" cy="250" r="86"/>
+    <circle cx="400" cy="140" r="86" fill="#349fda"/>
+    <circle cx="580" cy="250" r="86" fill="#4ab8f0"/>
+    <circle cx="400" cy="360" r="86" fill="#66c8f8"/>
+  </g>
+  <g fill="#e6f8ff" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" text-anchor="middle">
+    <text x="220" y="258">Sensing</text>
+    <text x="400" y="148">Rate Control</text>
+    <text x="580" y="258">Scheduling</text>
+    <text x="400" y="368">Energy Model</text>
+  </g>
+  <g fill="none" stroke="#9be0ff" stroke-width="6" marker-end="url(#arrow)">
+    <path d="M300 208 C330 170 345 160 360 156"/>
+    <path d="M470 170 C520 182 542 196 550 212"/>
+    <path d="M550 290 C510 334 470 348 445 352"/>
+    <path d="M350 346 C295 332 266 313 246 288"/>
+  </g>
+</svg>

@@ -423,6 +423,72 @@ a:hover {
 }
 
 
+
+
+/* 4.3 ter Project cards */
+.project-list {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    border: 1px solid color-mix(in srgb, var(--muted), transparent 68%);
+    background: linear-gradient(160deg, color-mix(in srgb, var(--surface), transparent 5%), color-mix(in srgb, var(--surface-2), transparent 10%));
+    box-shadow: var(--shadow-sm);
+}
+
+.project-card__image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in srgb, var(--muted), transparent 65%);
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    background: color-mix(in srgb, var(--surface), #091220 25%);
+}
+
+.project-card__body {
+    display: grid;
+    gap: var(--space-sm);
+}
+
+.project-card__title,
+.project-card__summary {
+    margin: 0;
+}
+
+.project-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.project-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 5.5rem;
+    padding: 0.4rem 0.78rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid color-mix(in srgb, var(--accent), transparent 35%);
+    background: color-mix(in srgb, var(--accent), transparent 86%);
+    color: #dff1ff;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.project-cta:hover {
+    background: color-mix(in srgb, var(--accent), transparent 78%);
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
 /* 4.3 bis Timeline Experience */
 .timeline {
     position: relative;
@@ -635,6 +701,22 @@ a:hover {
    5) MEDIA QUERIES
    ========================================================= */
 @media (min-width: 48.0625rem) {
+    .project-card {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .project-card__image {
+        width: min(40%, 22rem);
+        flex: 0 0 min(40%, 22rem);
+    }
+
+    .project-card__body {
+        flex: 1;
+        align-content: start;
+    }
+
+
     .c-header__menu-toggle {
         display: none;
     }
