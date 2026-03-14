@@ -234,6 +234,8 @@ a:hover {
     display: inline-block;
     padding: 0.35rem 0.65rem;
     border-radius: var(--radius-pill);
+    border: 1px solid transparent;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .c-nav__link:hover {
@@ -242,9 +244,14 @@ a:hover {
     text-decoration: none;
 }
 
-.c-nav__link.is-active {
+.c-nav__link.active {
     color: #f6fbff;
-    background: color-mix(in srgb, var(--accent), transparent 80%);
+    background: color-mix(in srgb, var(--accent), transparent 84%);
+    border-color: color-mix(in srgb, var(--accent), transparent 60%);
+}
+
+.c-nav__link.active:focus-visible {
+    outline-color: #8ed0ff;
 }
 
 /* 4.2 Hero */

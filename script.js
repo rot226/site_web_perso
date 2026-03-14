@@ -26,25 +26,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const activeHash = window.location.hash;
 
         navLinks.forEach((link) => {
-            link.classList.remove('is-active');
+            link.classList.remove('active');
+            link.removeAttribute('aria-current');
 
             const href = link.getAttribute('href');
             if (!href) return;
 
-            const linkUrl = new URL(href, window.location.href);
+            const linkUrl = new URL(href, window.location.origin);
             const linkPath = normalizePathname(linkUrl.pathname);
             const linkHash = linkUrl.hash;
 
-            const isSamePageHashLink = linkPath === activePath && Boolean(linkHash);
-            const isPathMatch = linkPath === activePath && !linkHash;
-            const isHashMatch = isSamePageHashLink && linkHash === activeHash;
-            const isDefaultIndexSection =
-                activePath === '/index.html' &&
-                !activeHash &&
-                href.startsWith('#about');
+            const isSamePath = linkPath === activePath;
+            const isIndexPath = activePath === '/index.html';
+            const isHashLink = Boolean(linkHash);
 
-            if (isPathMatch || isHashMatch || isDefaultIndexSection) {
-                link.classList.add('is-active');
+            const isHashMatch = isSamePath && isHashLink && linkHash === activeHash;
+            const isDefaultIndexSection = isIndexPath && !activeHash && isSamePath && linkHash === '#about';
+            const isPageMatch = isSamePath && !isHashLink && (!isIndexPath || !activeHash);
+
+            if (isHashMatch || isDefaultIndexSection || isPageMatch) {
+                link.classList.add('active');
+                link.setAttribute('aria-current', isHashLink ? 'location' : 'page');
             }
         });
     };
