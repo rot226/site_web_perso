@@ -804,3 +804,94 @@ a:hover {
         justify-content: center;
     }
 }
+
+/* 4.3 quater Publications list details */
+.pub-profile-link {
+    margin-bottom: var(--space-lg);
+}
+
+.pub-profile-link a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.38rem 0.78rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid color-mix(in srgb, var(--accent), transparent 35%);
+    background: color-mix(in srgb, var(--accent), transparent 86%);
+    color: #dff1ff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.pub-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-md);
+}
+
+.pub-item {
+    margin: 0;
+    padding: var(--space-md);
+    background: linear-gradient(160deg, color-mix(in srgb, var(--surface), transparent 5%), color-mix(in srgb, var(--surface-2), transparent 10%));
+    border: 1px solid color-mix(in srgb, var(--muted), transparent 68%);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.pub-item p {
+    margin-bottom: var(--space-2xs);
+}
+
+.pub-authors,
+.pub-doi,
+.pub-venue {
+    color: var(--muted);
+    font-size: var(--fs-sm);
+}
+
+.pub-main {
+    color: #f6fbff;
+}
+
+.pub-year {
+    font-weight: 650;
+}
+
+.pub-title {
+    font-weight: 650;
+}
+
+.pub-author-highlight {
+    color: #f6fbff;
+    font-weight: 700;
+}
+
+.pub-links {
+    margin-top: var(--space-sm);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.pub-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 4.2rem;
+    padding: 0.35rem 0.68rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid color-mix(in srgb, var(--accent), transparent 35%);
+    background: color-mix(in srgb, var(--accent), transparent 86%);
+    color: #dff1ff;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.pub-links a:hover,
+.pub-profile-link a:hover {
+    background: color-mix(in srgb, var(--accent), transparent 78%);
+    transform: translateY(-1px);
+    text-decoration: none;
+}
