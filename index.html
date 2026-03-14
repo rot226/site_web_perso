@@ -12,33 +12,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="name">François d’Assise Sanou</div>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Ouvrir le menu">☰</button>
-        <nav id="primary-navigation">
-            <ul>
-                <li><a href="#about" class="active">À propos</a></li>
-                <li><a href="#experience">Expérience</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <header class="c-header">
+        <div class="c-header__name">François d’Assise Sanou</div>
+        <button class="c-header__menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Ouvrir le menu">☰</button>
+        <nav id="primary-navigation" class="c-nav">
+            <ul class="c-nav__list">
+                <li class="c-nav__item"><a href="#about" class="c-nav__link is-active">À propos</a></li>
+                <li class="c-nav__item"><a href="#experience" class="c-nav__link">Expérience</a></li>
+                <li class="c-nav__item"><a href="#projects" class="c-nav__link">Projets</a></li>
+                <li class="c-nav__item"><a href="#publications" class="c-nav__link">Publications</a></li>
+                <li class="c-nav__item"><a href="#contact" class="c-nav__link">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <section class="hero">
-        <div class="hero-text">
-            <h1>François d’Assise Sanou</h1>
-            <h2>Chercheur en réseaux sans fil</h2>
+    <section class="c-hero">
+        <div class="c-hero__text">
+            <h1 class="c-hero__title">François d’Assise Sanou</h1>
+            <h2 class="c-hero__subtitle">Chercheur en réseaux sans fil</h2>
             <p>Je suis informaticien et doctorant au Département d’informatique de l’Université Nazi Bony, au Burkina Faso. Mes recherches portent sur la simulation, l’optimisation et l’analyse des réseaux LoRa et LoRaWAN, avec un intérêt plus large pour les systèmes IoT basse consommation.</p>
             <p>Je pilote actuellement le développement de <a href="https://loraflexsim.netlify.app/" target="_blank">LoRaFlexSim</a>, un simulateur modulaire qui reproduit les principaux comportements de LoRaWAN tout en ouvrant de nouvelles perspectives de recherche.</p>
         </div>
-        <div class="hero-img">
-            <img src="images/identite_sanou.jpg" alt="Photo de profil de François d’Assise Sanou" width="1072" height="1280" loading="lazy" decoding="async">
+        <div class="c-hero__media">
+            <img class="c-hero__image" src="images/identite_sanou.jpg" alt="Photo de profil de François d’Assise Sanou" width="1072" height="1280" loading="lazy" decoding="async">
         </div>
     </section>
-    <main>
-        <section id="about">
-            <h2>À propos</h2>
+    <main class="l-page-main">
+        <section id="about" class="l-section">
+            <h2 class="l-section__title">À propos</h2>
+            <div class="l-section__content">
             <p>Je suis passionné par les communications sans fil et l’Internet des objets. Dans le cadre de ma thèse, je conçois et j’évalue de nouveaux mécanismes pour les réseaux longue portée et basse consommation. En dehors de la recherche académique, j’aime transmettre des connaissances par l’enseignement et collaborer avec d’autres chercheurs sur des outils de simulation open source.</p>
             <h3>Axes de recherche</h3>
             <ul>
@@ -47,30 +48,36 @@
                 <li>Protocoles de communication sobres en énergie pour les objets connectés.</li>
                 <li>Cadres de simulation et recherche reproductible.</li>
             </ul>
+            </div>
         </section>
 
-        <section id="experience">
-            <h2>Expérience</h2>
+        <section id="experience" class="l-section">
+            <h2 class="l-section__title">Expérience</h2>
+            <div class="l-section__content">
             <p>Mon parcours professionnel s’articule autour de la recherche et de l’enseignement en réseaux sans fil. Voici un résumé de mes rôles récents.</p>
             <ul>
                 <li><strong>Doctorant, Département d’informatique, Université Nazi Bony</strong> (2025 - aujourd’hui) : recherche sur les cadres de simulation LoRaWAN, les algorithmes adaptatifs et l’évaluation des performances.</li>
                 <li><strong>Assistant de recherche, Université Nazi Bony</strong> (2023 - 2025) : contribution au développement et à la validation de modèles de simulation LoRaWAN, et collaboration sur des outils open source.</li>
                 <li><strong>Assistant d’enseignement, Université Nazi Bony</strong> (2023 - 2024) : accompagnement de cours sur les réseaux sans fil et l’Internet des objets, avec tutorat d’étudiants de licence.</li>
             </ul>
+            </div>
         </section>
 
-        <section id="projects">
-            <h2>Projets</h2>
+        <section id="projects" class="l-section">
+            <h2 class="l-section__title">Projets</h2>
+            <div class="l-section__content">
             <p>Mon travail couvre le développement de cadres de simulation et la recherche de nouveaux mécanismes pour les réseaux longue portée à basse consommation.</p>
             <ul>
                 <li><strong>LoRaFlexSim</strong> : simulateur modulaire et orienté événements pour les réseaux LoRa et LoRaWAN. Le projet met l’accent sur la fidélité, l’extensibilité et la facilité d’utilisation. Je dirige la conception et l’implémentation de cet outil. <a href="https://loraflexsim.netlify.app/" target="_blank">Visiter le site du projet</a>.</li>
                 <li><strong>Implémentation des classes d’équipements LoRaWAN A, B et C dans LoRaFlexSim</strong> : extension de LoRaFlexSim pour prendre en charge l’ensemble des classes d’équipements LoRaWAN et étude de leurs performances dans différents scénarios. <a href="https://ieeexplore.ieee.org/abstract/document/11323245" target="_blank">Lire l’article</a>.</li>
                 <li><strong>Algorithmes adaptatifs pour les LPWAN</strong> : travaux en cours sur la gestion intelligente des ressources et les schémas adaptatifs de débit pour améliorer l’efficacité réseau et la durée de vie des équipements.</li>
             </ul>
+            </div>
         </section>
 
-        <section id="publications">
-            <h2>Publications</h2>
+        <section id="publications" class="l-section">
+            <h2 class="l-section__title">Publications</h2>
+            <div class="l-section__content">
             <p>Voici une liste à jour de mes publications. Le premier article explore l’adaptation de modulation avec FLoRa ; les autres utilisent LoRaFlexSim.</p>
             <ol>
                 <li>
@@ -86,19 +93,22 @@
                     <strong>Quantifying Mobility Range Interactions in LoRaWAN with LoRaFlexSim</strong> : quantification des effets de mobilité dans les réseaux LoRaWAN à l’aide de LoRaFlexSim. <a href="https://ieeexplore.ieee.org/abstract/document/11418870" target="_blank">Voir sur IEEE Xplore</a>.
                 </li>
             </ol>
+            </div>
         </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
+        <section id="contact" class="l-section">
+            <h2 class="l-section__title">Contact</h2>
+            <div class="l-section__content">
             <p>Si vous souhaitez collaborer ou en savoir plus sur mes recherches, contactez-moi via le Département d’informatique de l’Université Nazi Bony.</p>
             <ul>
                 <li><strong>E-mail</strong> : merci d’adresser vos demandes via le Département d’informatique de l’université.</li>
                 <li><strong>Adresse postale</strong> : Université Nazi Bony, Bobo-Dioulasso, Burkina Faso.</li>
                 <li><strong>LinkedIn</strong> : <a href="https://www.linkedin.com/feed/" target="_blank">Profil LinkedIn</a>.</li>
             </ul>
+            </div>
         </section>
     </main>
-    <footer>
+    <footer class="c-footer">
         <p>© 2026 François d’Assise Sanou. Tous droits réservés.</p>
     </footer>
     <script src="script.js"></script>

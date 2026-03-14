@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('#primary-navigation');
-    const menuButton = document.querySelector('.menu-toggle');
-    const navLinks = Array.from(document.querySelectorAll('nav a'));
+    const menuButton = document.querySelector('.c-header__menu-toggle');
+    const navLinks = Array.from(document.querySelectorAll('.c-nav__link'));
 
     const isMobileView = () => window.matchMedia('(max-width: 768px)').matches;
 
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const setMenuState = (open) => {
         if (!nav || !menuButton) return;
-        nav.classList.toggle('is-open', open);
+        nav.classList.toggle('c-nav--open', open);
         menuButton.setAttribute('aria-expanded', String(open));
     };
 
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const activeHash = window.location.hash;
 
         navLinks.forEach((link) => {
-            link.classList.remove('active');
+            link.classList.remove('is-active');
 
             const href = link.getAttribute('href');
             if (!href) return;
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 href.startsWith('#about');
 
             if (isPathMatch || isHashMatch || isDefaultIndexSection) {
-                link.classList.add('active');
+                link.classList.add('is-active');
             }
         });
     };
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!nav || !menuButton) return;
 
     menuButton.addEventListener('click', () => {
-        const isOpen = nav.classList.contains('is-open');
+        const isOpen = nav.classList.contains('c-nav--open');
         setMenuState(!isOpen);
     });
 
