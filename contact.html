@@ -12,50 +12,52 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="name">François d’Assise Sanou</div>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Ouvrir le menu">☰</button>
-        <nav id="primary-navigation">
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="experience.html">Expérience</a></li>
-                <li><a href="projects.html">Projets</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
+    <header class="c-header">
+        <div class="c-header__name">François d’Assise Sanou</div>
+        <button class="c-header__menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Ouvrir le menu">☰</button>
+        <nav id="primary-navigation" class="c-nav">
+            <ul class="c-nav__list">
+                <li class="c-nav__item"><a href="index.html" class="c-nav__link">Accueil</a></li>
+                <li class="c-nav__item"><a href="experience.html" class="c-nav__link">Expérience</a></li>
+                <li class="c-nav__item"><a href="projects.html" class="c-nav__link">Projets</a></li>
+                <li class="c-nav__item"><a href="publications.html" class="c-nav__link">Publications</a></li>
+                <li class="c-nav__item"><a href="contact.html" class="c-nav__link is-active">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section>
-            <h2>Contact</h2>
+    <main class="l-page-main">
+        <section class="l-section">
+            <h2 class="l-section__title">Contact</h2>
+            <div class="l-section__content">
             <p>Si vous souhaitez collaborer ou en savoir plus sur mes recherches, vous pouvez utiliser les informations ci-dessous.</p>
             <ul>
                 <li><strong>E-mail</strong> : merci d’adresser vos demandes via le Département d’informatique de l’Université Nazi Bony.</li>
                 <li><strong>Adresse postale</strong> : Département d’informatique, Université Nazi Bony, Bobo-Dioulasso, Burkina Faso.</li>
             </ul>
             <p>Vous pouvez également remplir le formulaire ci-dessous (cette page est statique et n’envoie pas de données).</p>
-            <form>
-                <div class="form-group">
+            <form class="c-form">
+                <div class="c-form__group">
                     <label for="name">Nom</label>
                     <input type="text" id="name" name="name" required>
                 </div>
 
-                <div class="form-group">
+                <div class="c-form__group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email" required>
                 </div>
 
-                <div class="form-group">
+                <div class="c-form__group">
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
 
-                <p class="form-static-info"><em>Note :</em> ce formulaire n’est pas fonctionnel sur la version statique du site. Merci d’utiliser l’adresse e-mail ci-dessus.</p>
+                <p class="c-form__static-info"><em>Note :</em> ce formulaire n’est pas fonctionnel sur la version statique du site. Merci d’utiliser l’adresse e-mail ci-dessus.</p>
                 <button type="submit" disabled aria-disabled="true">Envoyer</button>
             </form>
+                    </div>
         </section>
     </main>
-    <footer>
+    <footer class="c-footer">
         <p>© 2026 François d’Assise Sanou.</p>
     </footer>
     <script src="script.js"></script>

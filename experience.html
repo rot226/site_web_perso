@@ -12,31 +12,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="name">François d’Assise Sanou</div>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Ouvrir le menu">☰</button>
-        <nav id="primary-navigation">
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="experience.html" class="active">Expérience</a></li>
-                <li><a href="projects.html">Projets</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="contact.html">Contact</a></li>
+    <header class="c-header">
+        <div class="c-header__name">François d’Assise Sanou</div>
+        <button class="c-header__menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Ouvrir le menu">☰</button>
+        <nav id="primary-navigation" class="c-nav">
+            <ul class="c-nav__list">
+                <li class="c-nav__item"><a href="index.html" class="c-nav__link">Accueil</a></li>
+                <li class="c-nav__item"><a href="experience.html" class="c-nav__link is-active">Expérience</a></li>
+                <li class="c-nav__item"><a href="projects.html" class="c-nav__link">Projets</a></li>
+                <li class="c-nav__item"><a href="publications.html" class="c-nav__link">Publications</a></li>
+                <li class="c-nav__item"><a href="contact.html" class="c-nav__link">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section>
-            <h2>Expérience</h2>
+    <main class="l-page-main">
+        <section class="l-section">
+            <h2 class="l-section__title">Expérience</h2>
+            <div class="l-section__content">
             <p>Mon parcours professionnel s’articule autour de la recherche et de l’enseignement en réseaux sans fil. Voici un résumé de mes rôles récents.</p>
             <ul>
                 <li><strong>Doctorant, Département d’informatique, Université Nazi Bony</strong> (2025 - aujourd’hui) : recherche sur les cadres de simulation LoRaWAN, les algorithmes adaptatifs et l’évaluation des performances.</li>
                 <li><strong>Assistant de recherche, Université Nazi Bony</strong> (2023 - 2025) : contribution au développement et à la validation de modèles de simulation LoRaWAN, et collaboration sur des outils open source.</li>
                 <li><strong>Assistant d’enseignement, Université Nazi Bony</strong> (2023 - 2024) : accompagnement de cours sur les réseaux sans fil et l’Internet des objets, avec tutorat d’étudiants de licence.</li>
             </ul>
+                    </div>
         </section>
     </main>
-    <footer>
+    <footer class="c-footer">
         <p>© 2026 François d’Assise Sanou.</p>
     </footer>
     <script src="script.js"></script>
