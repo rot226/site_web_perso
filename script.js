@@ -1,9 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('#primary-navigation');
     const menuButton = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelectorAll('nav a');
+    const navLinks = Array.from(document.querySelectorAll('nav a'));
 
     const isMobileView = () => window.matchMedia('(max-width: 768px)').matches;
+
+    const normalizePathname = (pathname) => {
+        const cleanedPath = pathname.replace(/\/+$|^$/g, '') || '/';
+        if (cleanedPath === '/') {
+            return '/index.html';
+        }
+        return cleanedPath.startsWith('/') ? cleanedPath : `/${cleanedPath}`;
+    };
+
+    const currentPath = () => normalizePathname(window.location.pathname);
 
     const setMenuState = (open) => {
         if (!nav || !menuButton) return;
@@ -11,21 +21,49 @@ document.addEventListener('DOMContentLoaded', () => {
         menuButton.setAttribute('aria-expanded', String(open));
     };
 
-    // Mark the first link as active on initial load
-    if (navLinks.length > 0) {
-        navLinks[0].classList.add('active');
-    }
+    const updateActiveLink = () => {
+        const activePath = currentPath();
+        const activeHash = window.location.hash;
+
+        navLinks.forEach((link) => {
+            link.classList.remove('active');
+
+            const href = link.getAttribute('href');
+            if (!href) return;
+
+            const linkUrl = new URL(href, window.location.href);
+            const linkPath = normalizePathname(linkUrl.pathname);
+            const linkHash = linkUrl.hash;
+
+            const isSamePageHashLink = linkPath === activePath && Boolean(linkHash);
+            const isPathMatch = linkPath === activePath && !linkHash;
+            const isHashMatch = isSamePageHashLink && linkHash === activeHash;
+            const isDefaultIndexSection =
+                activePath === '/index.html' &&
+                !activeHash &&
+                href.startsWith('#about');
+
+            if (isPathMatch || isHashMatch || isDefaultIndexSection) {
+                link.classList.add('active');
+            }
+        });
+    };
+
+    updateActiveLink();
 
     navLinks.forEach((link) => {
         link.addEventListener('click', () => {
-            navLinks.forEach((l) => l.classList.remove('active'));
-            link.classList.add('active');
-
             if (isMobileView()) {
                 setMenuState(false);
             }
+
+            // Wait for URL/hash to update, then derive the active state from location.
+            requestAnimationFrame(updateActiveLink);
         });
     });
+
+    window.addEventListener('hashchange', updateActiveLink);
+    window.addEventListener('popstate', updateActiveLink);
 
     if (!nav || !menuButton) return;
 
