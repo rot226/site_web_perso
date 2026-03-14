@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">LoRaWAN classes comparison</title>
+  <desc id="desc">Three-panel class comparison for Class A, B and C over latency and power usage.</desc>
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#182f4c"/>
+      <stop offset="100%" stop-color="#0f1b2f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg2)" rx="28"/>
+  <g>
+    <rect x="80" y="90" width="200" height="300" rx="16" fill="#1f6fa8"/>
+    <rect x="300" y="90" width="200" height="300" rx="16" fill="#2d8fcd"/>
+    <rect x="520" y="90" width="200" height="300" rx="16" fill="#48b5f1"/>
+  </g>
+  <g fill="#dbf4ff" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle">
+    <text x="180" y="145">Class A</text>
+    <text x="400" y="145">Class B</text>
+    <text x="620" y="145">Class C</text>
+  </g>
+  <g stroke="#c9eeff" stroke-width="8" stroke-linecap="round">
+    <line x1="130" y1="220" x2="230" y2="220"/>
+    <line x1="350" y1="250" x2="450" y2="250"/>
+    <line x1="570" y1="285" x2="670" y2="285"/>
+  </g>
+  <g fill="#dbf4ff" font-family="Segoe UI, Arial, sans-serif" font-size="22" text-anchor="middle">
+    <text x="180" y="340">Low power</text>
+    <text x="400" y="340">Balanced</text>
+    <text x="620" y="340">Low latency</text>
+  </g>
+</svg>
