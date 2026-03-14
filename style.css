@@ -291,6 +291,93 @@ a:hover {
     box-shadow: var(--shadow-md);
 }
 
+/* 4.2 bis About profile and summary */
+.l-section--about .l-section__content {
+    max-width: none;
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: minmax(15rem, 20rem) minmax(0, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.profile-card,
+.research-summary,
+.about-subsection {
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid color-mix(in srgb, var(--muted), transparent 68%);
+    background: linear-gradient(160deg, color-mix(in srgb, var(--surface), transparent 5%), color-mix(in srgb, var(--surface-2), transparent 8%));
+    box-shadow: var(--shadow-sm);
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-xs);
+}
+
+.profile-card__image {
+    width: min(180px, 100%);
+    height: auto;
+    border-radius: 50%;
+    aspect-ratio: 1072 / 1280;
+    border: 4px solid color-mix(in srgb, var(--accent), #fff 10%);
+}
+
+.profile-card__name {
+    font-size: var(--fs-xl);
+    margin: var(--space-xs) 0 0;
+}
+
+.profile-card__role,
+.profile-card__affiliation {
+    margin: 0;
+    color: var(--muted);
+}
+
+.profile-card__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-sm);
+}
+
+.profile-card__links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.38rem 0.75rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid color-mix(in srgb, var(--accent), transparent 35%);
+    background: color-mix(in srgb, var(--accent), transparent 86%);
+    color: #dff1ff;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+}
+
+.research-summary h3 {
+    margin-bottom: var(--space-sm);
+}
+
+.research-summary p:last-child {
+    margin-bottom: 0;
+}
+
+.about-subsections {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+}
+
+.about-subsection ul {
+    margin-bottom: 0;
+}
+
 /* 4.3 Cartes Experience / Projects / Publications */
 #experience .l-section__content > ul,
 #projects .l-section__content > ul,
@@ -517,6 +604,12 @@ a:hover {
         grid-template-columns: 1fr;
         row-gap: var(--space-xs);
         margin-bottom: var(--space-xl);
+    }
+
+    .about-layout,
+    .about-subsections {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
     }
 
     .l-section__title {

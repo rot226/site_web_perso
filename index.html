@@ -25,35 +25,50 @@
             </ul>
         </nav>
     </header>
-    <section class="c-hero">
-        <div class="c-hero__text">
-            <h1 class="c-hero__title">François d’Assise Sanou</h1>
-            <h2 class="c-hero__subtitle">Wireless Networks Researcher</h2>
-            <p>I am a computer scientist and PhD candidate in the Department of Computer Science at Université Nazi Bony, Burkina Faso. I investigate LoRa and LoRaWAN systems through simulation, optimization, and performance analysis.</p>
-            <p>I develop <a href="https://loraflexsim.netlify.app/" target="_blank" rel="noopener noreferrer">LoRaFlexSim</a>, a modular simulator that reproduces key LoRaWAN behaviors and supports reproducible research workflows.</p>
-        </div>
-        <div class="c-hero__media">
-            <img class="c-hero__image" src="images/identite_sanou.jpg" alt="Portrait of François d’Assise Sanou" width="1072" height="1280" loading="lazy" decoding="async">
-        </div>
-    </section>
+
     <main class="l-page-main">
-        <section id="about" class="l-section">
+        <section id="about" class="l-section l-section--about">
             <h2 class="l-section__title">About</h2>
             <div class="l-section__content">
-                <p>I focus on wireless communications and the Internet of Things. In my doctoral work, I develop and evaluate mechanisms for long-range, low-power networks. I also contribute to teaching and collaborative open-source simulation tools.</p>
-                <h3>Research Interests</h3>
-                <ul>
-                    <li>Performance evaluation and optimization of LoRaWAN and LPWAN networks.</li>
-                    <li>Adaptive data rate algorithms and intelligent resource allocation.</li>
-                    <li>Energy-efficient communication protocols for connected devices.</li>
-                    <li>Simulation frameworks and reproducible research methods.</li>
-                </ul>
-                <h3>Editorial Guide</h3>
-                <ul>
-                    <li>Use action verbs: investigate, develop, evaluate.</li>
-                    <li>Maintain a factual and evidence-based tone.</li>
-                    <li>Write short and precise sentences.</li>
-                </ul>
+                <div class="about-layout">
+                    <article class="profile-card" aria-label="Profile">
+                        <img class="profile-card__image" src="images/identite_sanou.jpg" alt="Portrait of François d’Assise Sanou" width="1072" height="1280" loading="lazy" decoding="async">
+                        <h1 class="profile-card__name">François d’Assise Sanou</h1>
+                        <p class="profile-card__role">Wireless Networks Researcher · PhD Candidate</p>
+                        <p class="profile-card__affiliation">Department of Computer Science, Université Nazi Bony, Burkina Faso</p>
+                        <div class="profile-card__links">
+                            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        </div>
+                    </article>
+
+                    <div class="research-summary" aria-label="Research Summary">
+                        <h3>Research Summary</h3>
+                        <p>I design and evaluate LoRa/LoRaWAN communication strategies for dense and heterogeneous IoT deployments. My work combines reproducible simulation campaigns and analytical modeling to characterize packet delivery ratio, energy use, and end-to-end latency under realistic traffic and propagation constraints.</p>
+                        <p>Through <a href="https://loraflexsim.netlify.app/" target="_blank" rel="noopener noreferrer">LoRaFlexSim</a>, I build modular simulation workflows that support scenario scaling, algorithm benchmarking, and protocol-level experimentation. The framework enables controlled comparisons of ADR policies, gateway placement strategies, and MAC-layer configurations with traceable performance indicators.</p>
+                        <p>I focus on measurable contributions: reducing collision rates, improving fairness across spreading factors, and increasing network capacity while preserving battery lifetime. This orientation guides both my current doctoral research and collaborative open-source development for LPWAN researchers and practitioners.</p>
+                    </div>
+                </div>
+
+                <div class="about-subsections">
+                    <article class="about-subsection" aria-label="Research Interests">
+                        <h3>Research Interests</h3>
+                        <ul>
+                            <li>LoRaWAN scalability, reliability, and capacity planning.</li>
+                            <li>Adaptive data rate optimization and cross-layer control.</li>
+                            <li>LPWAN simulation frameworks and reproducible experimentation.</li>
+                            <li>Energy-aware protocol design for long-lived IoT systems.</li>
+                        </ul>
+                    </article>
+                    <article class="about-subsection" aria-label="Education and Current Position">
+                        <h3>Education &amp; Current Position</h3>
+                        <ul>
+                            <li><strong>PhD Candidate</strong>, Computer Science — Université Nazi Bony (2025–Present).</li>
+                            <li><strong>MSc in Computer Science</strong> — focus on wireless/IoT systems.</li>
+                            <li><strong>Research Assistant</strong> in LoRaWAN simulation and performance evaluation.</li>
+                        </ul>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -76,7 +91,7 @@
                 <ul>
                     <li><strong>LoRaFlexSim</strong>: modular event-driven simulator for LoRa and LoRaWAN networks. I lead architecture design and implementation. <a href="https://loraflexsim.netlify.app/" target="_blank" rel="noopener noreferrer">Project page</a>.</li>
                     <li><strong>Implementing LoRaWAN End-Device Classes A, B, and C in LoRaFlexSim</strong>: extension of LoRaFlexSim to support all LoRaWAN end-device classes and evaluate behavior across scenarios. <a href="https://ieeexplore.ieee.org/abstract/document/11323245" target="_blank" rel="noopener noreferrer">Read paper</a>.</li>
-                    <li><strong>Adaptive Algorithms for LPWAN</strong>: ongoing work to develop resource-aware data rate mechanisms and evaluate gains in network efficiency and device lifetime.</li>
+                    <li><strong>Adaptive Algorithms for LPWAN</strong>: ongoing work to develop resource-aware data rate mechanisms and evaluate gains in network efficiency.</li>
                 </ul>
             </div>
         </section>
@@ -84,19 +99,21 @@
         <section id="publications" class="l-section">
             <h2 class="l-section__title">Publications</h2>
             <div class="l-section__content">
-                <p>Selected publications on LoRa and LoRaWAN network modeling and analysis.</p>
+                <p>Selected publications on LoRa and LoRaWAN simulation and performance evaluation:</p>
                 <ol>
                     <li>
-                        <strong>Dynamic Adaptation of the Modulation in a LoRa Channel According to the Link Quality</strong>: investigates modulation adaptation strategies based on link quality indicators. <a href="https://ieeexplore.ieee.org/abstract/document/10812147" target="_blank" rel="noopener noreferrer">Read paper</a>.
+                        <strong>Design and Simulation of a Generic Framework for LoRa/LoRaWAN Networks</strong>.<br>
+                        <em>International Journal of Emerging Trends in Engineering Research</em>, 2025.
+                        <a href="https://www.warse.org/IJETER/static/pdf/file/ijeter03922025.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
                     </li>
                     <li>
-                        <strong>LoRaFlexSim: A Flexible LoRa/LoRaWAN Simulator</strong>: presents architecture, validation, and extensibility of LoRaFlexSim. <a href="https://ieeexplore.ieee.org/abstract/document/11304034" target="_blank" rel="noopener noreferrer">Read paper</a>.
+                        <strong>Implementing LoRaWAN End-Device Classes A, B, and C in LoRaFlexSim</strong>.<br>
+                        <em>IEEE WCCP 2024</em>.
+                        <a href="https://ieeexplore.ieee.org/abstract/document/11323245" target="_blank" rel="noopener noreferrer">IEEE Xplore</a>
                     </li>
                     <li>
-                        <strong>Implementing LoRaWAN End-Device Classes A, B, and C in LoRaFlexSim</strong>: develops and evaluates end-device class implementations using LoRaFlexSim. <a href="https://ieeexplore.ieee.org/abstract/document/11323245" target="_blank" rel="noopener noreferrer">Read paper</a>.
-                    </li>
-                    <li>
-                        <strong>Quantifying Mobility Range Interactions in LoRaWAN with LoRaFlexSim</strong>: evaluates mobility effects in LoRaWAN scenarios with a simulation-based approach. <a href="https://ieeexplore.ieee.org/abstract/document/11418870" target="_blank" rel="noopener noreferrer">Read paper</a>.
+                        <strong>A Comparative Study of Collision Avoidance Mechanisms in LoRa Networks</strong>.<br>
+                        <em>Under review</em>, 2026.
                     </li>
                 </ol>
             </div>
@@ -105,18 +122,41 @@
         <section id="contact" class="l-section">
             <h2 class="l-section__title">Contact</h2>
             <div class="l-section__content">
-                <p>For research collaboration or academic inquiries, please contact me through the Department of Computer Science at Université Nazi Bony.</p>
-                <ul>
-                    <li><strong>Email</strong>: please route requests through the department.</li>
-                    <li><strong>Postal address</strong>: Université Nazi Bony, Bobo-Dioulasso, Burkina Faso.</li>
-                    <li><strong>Google Scholar</strong>: <a href="https://scholar.google.com/scholar?q=Fran%C3%A7ois+d%27Assise+Sanou" target="_blank" rel="noopener noreferrer">Google Scholar profile</a>.</li>
-                </ul>
+                <div class="contact-card">
+                    <p class="contact-card__intro">Feel free to reach out for research collaboration, speaking opportunities, or project discussions.</p>
+                    <a class="contact-link" href="mailto:francois.sanou@example.com" aria-label="Send an email to François d’Assise Sanou">
+                        <span class="contact-link__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" role="img" focusable="false" aria-hidden="true">
+                                <path d="M2 5.5C2 4.12 3.12 3 4.5 3h15C20.88 3 22 4.12 22 5.5v13c0 1.38-1.12 2.5-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13Zm2.3-.5L12 10.08 19.7 5H4.3ZM20 6.47l-7.45 4.92a1 1 0 0 1-1.1 0L4 6.47V18.5c0 .28.22.5.5.5h15a.5.5 0 0 0 .5-.5V6.47Z"/>
+                            </svg>
+                        </span>
+                        <span class="contact-link__label">francois.sanou@example.com</span>
+                    </a>
+                </div>
+                <form class="c-form" action="#" method="post" aria-describedby="contact-help">
+                    <p id="contact-help" class="c-form__static-info">The form is displayed for portfolio structure purposes and can be connected to a backend service later.</p>
+                    <div class="c-form__group">
+                        <label for="name">Name</label>
+                        <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+                    </div>
+                    <div class="c-form__group">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="c-form__group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your project or collaboration idea." required></textarea>
+                    </div>
+                    <button type="submit" aria-disabled="true" disabled>Send Message (Coming Soon)</button>
+                </form>
             </div>
         </section>
     </main>
+
     <footer class="c-footer">
         <p>© 2026 François d’Assise Sanou. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
