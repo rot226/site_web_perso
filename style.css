@@ -31,29 +31,71 @@ a:hover {
 header {
     background-color: var(--header-bg);
     color: var(--primary-text);
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.25rem;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 0.75rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    position: relative;
 }
 header .name {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
+}
+
+.menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--secondary-text);
+    border-radius: 0.4rem;
+    background: transparent;
+    color: var(--primary-text);
+    cursor: pointer;
+}
+.menu-toggle:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+.menu-toggle:focus-visible,
+nav a:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+nav {
+    width: 100%;
 }
 nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.25s ease, opacity 0.2s ease;
+}
+nav.is-open ul {
     display: flex;
+    max-height: 24rem;
+    opacity: 1;
 }
 nav li {
-    margin-left: 1.5rem;
+    margin: 0;
 }
 nav a {
     color: var(--primary-text);
     font-weight: 500;
     transition: color 0.2s ease;
+    display: inline-block;
+    padding: 0.25rem 0;
 }
 nav a:hover {
     color: var(--accent-color);
@@ -63,6 +105,33 @@ nav a:hover {
     border-bottom: 2px solid var(--accent-color);
 }
 
+@media (min-width: 769px) {
+    header {
+        padding: 1.5rem 2rem;
+    }
+    header .name {
+        font-size: 2rem;
+    }
+    .menu-toggle {
+        display: none;
+    }
+    nav {
+        width: auto;
+    }
+    nav ul,
+    nav.is-open ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0;
+        max-height: none;
+        opacity: 1;
+        overflow: visible;
+    }
+    nav li {
+        margin-left: 1.5rem;
+    }
+}
 /* Hero section */
 .hero {
     display: flex;
