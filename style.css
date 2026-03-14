@@ -422,6 +422,77 @@ a:hover {
     transform: translateY(-1px);
 }
 
+
+/* 4.3 bis Timeline Experience */
+.timeline {
+    position: relative;
+    display: grid;
+    gap: var(--space-lg);
+    padding-left: clamp(2rem, 1.5rem + 1vw, 2.6rem);
+    margin-top: var(--space-md);
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 0.58rem;
+    top: 0.2rem;
+    bottom: 0.2rem;
+    width: 2px;
+    background: linear-gradient(180deg, #9ed6ff 0%, #2ca6ff 45%, #7fd0ff 100%);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent), transparent 70%);
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: calc(-1 * clamp(2rem, 1.5rem + 1vw, 2.6rem) + 0.13rem);
+    top: 1rem;
+    width: 0.95rem;
+    height: 0.95rem;
+    border-radius: 50%;
+    border: 2px solid #dff3ff;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent), transparent 80%);
+}
+
+.timeline-card {
+    max-width: 60ch;
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in srgb, #c3dfff, transparent 40%);
+    background: linear-gradient(165deg, #173150 0%, #122a45 58%, #0f2239 100%);
+    box-shadow: var(--shadow-sm);
+}
+
+.timeline-card h3 {
+    margin-bottom: var(--space-xs);
+    color: #f3f9ff;
+}
+
+.timeline-card__meta {
+    margin-bottom: var(--space-sm);
+    color: #c0d5eb;
+    font-size: var(--fs-sm);
+}
+
+.timeline-card__list {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.timeline-card__list li {
+    margin-bottom: var(--space-2xs);
+    color: #e5eef8;
+}
+
+.timeline-card__list li:last-child {
+    margin-bottom: 0;
+}
+
 /* 4.4 Contact */
 .contact-card {
     display: flex;
@@ -615,6 +686,29 @@ a:hover {
     .l-section__title {
         position: static;
         margin-bottom: var(--space-xs);
+    }
+
+    .timeline {
+        padding-left: 1.7rem;
+        gap: var(--space-md);
+    }
+
+    .timeline::before {
+        left: 0.5rem;
+    }
+
+    .timeline-marker {
+        left: -1.25rem;
+        top: 0.95rem;
+    }
+
+    .timeline-card {
+        max-width: 100%;
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .timeline-card__meta {
+        line-height: 1.45;
     }
 
     .contact-card {
