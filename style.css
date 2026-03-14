@@ -6,7 +6,7 @@
     --surface: #122338;
     --surface-2: #162b44;
     --text: #e2e8f0;
-    --muted: #9cb0c7;
+    --muted: #bfd0e2;
     --accent: #2ca6ff;
 
     --radius-sm: 0.45rem;
@@ -25,12 +25,12 @@
     --space-xl: clamp(2rem, 1.5rem + 2vw, 3rem);
     --space-2xl: clamp(2.5rem, 1.7rem + 2.8vw, 4rem);
 
-    --fs-xs: clamp(0.8rem, 0.76rem + 0.15vw, 0.9rem);
-    --fs-sm: clamp(0.9rem, 0.86rem + 0.2vw, 1rem);
-    --fs-md: clamp(1rem, 0.95rem + 0.35vw, 1.15rem);
-    --fs-lg: clamp(1.25rem, 1.1rem + 0.8vw, 1.7rem);
-    --fs-xl: clamp(1.55rem, 1.25rem + 1.2vw, 2.1rem);
-    --fs-2xl: clamp(2rem, 1.45rem + 2.5vw, 3rem);
+    --fs-xs: clamp(0.82rem, 0.77rem + 0.2vw, 0.94rem);
+    --fs-sm: clamp(0.94rem, 0.88rem + 0.25vw, 1.08rem);
+    --fs-md: clamp(1rem, 0.94rem + 0.38vw, 1.2rem);
+    --fs-lg: clamp(1.22rem, 1.03rem + 0.95vw, 1.8rem);
+    --fs-xl: clamp(1.48rem, 1.15rem + 1.5vw, 2.3rem);
+    --fs-2xl: clamp(1.9rem, 1.25rem + 2.8vw, 3.25rem);
 
     --container-max: 72rem;
 }
@@ -74,6 +74,12 @@ h2 {
 h3 {
     font-size: var(--fs-lg);
     margin-bottom: var(--space-xs);
+}
+
+h4 {
+    margin-top: 0;
+    font-size: var(--fs-md);
+    line-height: 1.35;
 }
 
 p,
@@ -175,6 +181,12 @@ a:hover {
 .c-header__name {
     font-size: var(--fs-lg);
     font-weight: 650;
+}
+
+.page-title {
+    margin: 0 0 var(--space-lg);
+    font-size: var(--fs-2xl);
+    color: #f8fbff;
 }
 
 .c-header__menu-toggle {
@@ -548,7 +560,7 @@ a:hover {
 
 .timeline-card__meta {
     margin-bottom: var(--space-sm);
-    color: #c0d5eb;
+    color: #d4e4f3;
     font-size: var(--fs-sm);
 }
 
@@ -812,6 +824,87 @@ a:hover {
     }
 }
 
+
+@media (max-width: 64rem) {
+    .l-page-main {
+        width: calc(100% - 2 * var(--space-md));
+    }
+
+    .c-header {
+        width: calc(100% - 2 * var(--space-md));
+    }
+
+    .timeline-card {
+        max-width: 100%;
+    }
+
+    .contact-card {
+        gap: var(--space-md);
+    }
+}
+
+@media (max-width: 30rem) {
+    .c-header {
+        padding: var(--space-xs) var(--space-sm);
+    }
+
+    .c-header__name {
+        width: 100%;
+    }
+
+    .timeline {
+        padding-left: 1.5rem;
+    }
+
+    .timeline::before {
+        left: 0.44rem;
+    }
+
+    .timeline-marker {
+        left: -1.12rem;
+        width: 0.84rem;
+        height: 0.84rem;
+    }
+
+    .project-card,
+    .pub-item,
+    #experience .l-section__content li,
+    #projects .l-section__content li,
+    #publications .l-section__content li,
+    .contact-card {
+        padding: var(--space-sm);
+    }
+
+    .contact-link {
+        padding: 0.64rem 0.86rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .project-cta:hover,
+    .contact-link:hover,
+    .c-form button:hover:not(:disabled),
+    #projects .l-section__content li a:hover,
+    #publications .l-section__content li a:hover,
+    .pub-links a:hover,
+    .pub-profile-link a:hover {
+        transform: none;
+    }
+}
+
 /* 4.3 quater Publications list details */
 .pub-profile-link {
     margin-bottom: var(--space-lg);
@@ -853,7 +946,7 @@ a:hover {
 .pub-authors,
 .pub-doi,
 .pub-venue {
-    color: var(--muted);
+    color: #d7e4f1;
     font-size: var(--fs-sm);
 }
 
