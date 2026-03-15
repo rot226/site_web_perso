@@ -17,24 +17,24 @@
     --shadow-sm: 0 2px 12px rgba(2, 12, 24, 0.25);
     --shadow-md: 0 8px 24px rgba(2, 12, 24, 0.35);
 
-    --space-2xs: clamp(0.25rem, 0.2rem + 0.2vw, 0.4rem);
-    --space-xs: clamp(0.5rem, 0.4rem + 0.35vw, 0.75rem);
-    --space-sm: clamp(0.75rem, 0.65rem + 0.55vw, 1rem);
-    --space-md: clamp(1rem, 0.85rem + 0.8vw, 1.4rem);
-    --space-lg: clamp(1.5rem, 1.2rem + 1.3vw, 2.1rem);
-    --space-xl: clamp(2rem, 1.5rem + 2vw, 3rem);
-    --space-2xl: clamp(2.5rem, 1.7rem + 2.8vw, 4rem);
+    --space-2xs: clamp(0.22rem, 0.18rem + 0.18vw, 0.34rem);
+    --space-xs: clamp(0.44rem, 0.35rem + 0.3vw, 0.64rem);
+    --space-sm: clamp(0.66rem, 0.57rem + 0.47vw, 0.86rem);
+    --space-md: clamp(0.88rem, 0.75rem + 0.68vw, 1.2rem);
+    --space-lg: clamp(1.28rem, 1.02rem + 1.1vw, 1.8rem);
+    --space-xl: clamp(1.7rem, 1.28rem + 1.7vw, 2.55rem);
+    --space-2xl: clamp(2.1rem, 1.45rem + 2.4vw, 3.4rem);
 
-    --fs-xs: clamp(0.82rem, 0.77rem + 0.2vw, 0.94rem);
-    --fs-sm: clamp(0.94rem, 0.88rem + 0.25vw, 1.08rem);
-    --fs-md: clamp(1rem, 0.94rem + 0.38vw, 1.2rem);
-    --fs-lg: clamp(1.22rem, 1.03rem + 0.95vw, 1.8rem);
-    --fs-xl: clamp(1.48rem, 1.15rem + 1.5vw, 2.3rem);
-    --fs-2xl: clamp(1.9rem, 1.25rem + 2.8vw, 3.25rem);
+    --fs-xs: clamp(0.72rem, 0.68rem + 0.18vw, 0.82rem);
+    --fs-sm: clamp(0.8rem, 0.75rem + 0.22vw, 0.92rem);
+    --fs-md: clamp(0.86rem, 0.8rem + 0.3vw, 1.02rem);
+    --fs-lg: clamp(1.04rem, 0.88rem + 0.78vw, 1.52rem);
+    --fs-xl: clamp(1.26rem, 0.98rem + 1.25vw, 1.95rem);
+    --fs-2xl: clamp(1.62rem, 1.08rem + 2.35vw, 2.8rem);
 
-    --container-max: 72rem;
+    --container-max: 68rem;
     --page-gutter: clamp(0.9rem, 0.55rem + 1.2vw, 1.6rem);
-    --section-title-width: clamp(9.5rem, 16vw, 13.25rem);
+    --section-title-width: clamp(8rem, 13vw, 11.2rem);
 }
 
 /* =========================================================
@@ -67,11 +67,11 @@ h3 {
 }
 
 h1 {
-    font-size: var(--fs-2xl);
+    font-size: clamp(1.5rem, 1.02rem + 2.05vw, 2.45rem);
 }
 
 h2 {
-    font-size: var(--fs-xl);
+    font-size: clamp(1.15rem, 0.93rem + 1.02vw, 1.68rem);
 }
 
 h3 {
@@ -149,7 +149,7 @@ a:hover {
 }
 
 .l-section__content {
-    max-width: 74ch;
+    max-width: 66ch;
 }
 
 .l-section__content p,
@@ -468,6 +468,7 @@ a:hover {
 .project-list {
     display: grid;
     gap: var(--space-lg);
+    max-width: 66ch;
 }
 
 .project-card {
@@ -723,6 +724,12 @@ a:hover {
     }
 }
 
+@media (max-width: 72rem) {
+    .l-section {
+        grid-template-columns: minmax(0, clamp(7rem, 18vw, 9.5rem)) minmax(0, 1fr);
+    }
+}
+
 @media (max-width: 48rem) {
     .c-header { margin-top: var(--space-sm); }
 
@@ -737,8 +744,8 @@ a:hover {
 
     .l-section {
         grid-template-columns: 1fr;
-        row-gap: var(--space-xs);
-        padding: var(--space-md);
+        row-gap: var(--space-sm);
+        padding: var(--space-lg);
         margin-bottom: var(--space-lg);
     }
 
@@ -750,7 +757,13 @@ a:hover {
 
     .l-section__title {
         position: static;
-        margin-bottom: var(--space-xs);
+        margin-bottom: var(--space-sm);
+    }
+
+    .l-section__content,
+    .project-list,
+    .pub-list {
+        max-width: 100%;
     }
 
     .timeline {
@@ -830,7 +843,7 @@ a:hover {
     #publications .l-section__content li,
     .contact-card,
     .l-section {
-        padding: var(--space-sm);
+        padding: var(--space-md);
     }
 
     .contact-link {
@@ -885,6 +898,7 @@ a:hover {
     margin: 0;
     display: grid;
     gap: var(--space-md);
+    max-width: 66ch;
 }
 
 .pub-item {
