@@ -13,53 +13,98 @@ Ce dépôt contient un **site académique statique en page unique**.
 
 Aucun backend n'est nécessaire.
 
-## Architecture single-page
+## Fichiers modifiés et rôle de chaque fichier
+
+- `index.html` : contenu principal du site (sections About, Experience, Projects, Publications, Contact).
+- `style.css` : design system (variables CSS), layout responsive, composants.
+- `script.js` : interactions (menu mobile + lien actif selon la section visible).
+- `experience.html`, `projects.html`, `publications.html`, `contact.html` : redirections legacy vers `index.html#...`.
+- `images/identite_sanou.jpg` : photo de profil affichée dans la section About.
+
+## Structure des sections (dans `index.html`)
 
 Le site repose sur **une seule page de contenu : `index.html`**.
 
-- Toutes les sections sont dans `index.html` :
-  - `#about`
-  - `#experience`
-  - `#projects`
-  - `#publications`
-  - `#contact`
-- La navigation principale utilise uniquement des ancres internes (`href="#..."`).
-- Le script front (`script.js`) valide et normalise le hash courant pour rester sur ces sections.
+- `#about`
+- `#experience`
+- `#projects`
+- `#publications`
+- `#contact`
+
+La navigation principale utilise uniquement des ancres internes (`href="#..."`).
+
+## Comment éditer rapidement le contenu
+
+### 1) Publications
+
+Dans `index.html`, section `#publications`, chaque publication est un bloc `<li class="pub-item">`.
+
+Pour en ajouter/éditer une :
+- mettre à jour les auteurs (`.pub-authors`),
+- le titre et l’URL (`.pub-title-link`),
+- la venue (`.pub-venue`),
+- le DOI (`.pub-doi`),
+- les boutons (`Paper`, `DOI`, `Cite`, `Code/Website`) dans `.pub-links`.
+
+### 2) Liens (navigation, externes, CTA)
+
+Dans `index.html` :
+- navigation principale : `<nav id="primary-navigation">` (liens `#about`, `#experience`, etc.),
+- liens sociaux du hero : bloc `.about-hero__links`,
+- liens sociaux de contact : section `#contact`, classe `.contact-link`,
+- liens projets/publications : boutons `.project-cta` et `.c-secondary-link`.
+
+### 3) Texte (bio, expérience, projets, contact)
+
+Tout le texte est éditable directement dans `index.html` :
+- bio et résumé de recherche : section `#about`,
+- parcours : section `#experience`,
+- projets : section `#projects`,
+- message de contact : section `#contact`.
+
+## Où modifier rapidement le style
+
+### Couleurs (variables CSS)
+
+Dans `style.css`, bloc `:root` :
+- `--bg`, `--surface`, `--surface-2`
+- `--text`, `--muted`, `--accent`
+
+### Tailles de police
+
+Dans `style.css` :
+- taille globale : `body { font: ... }`
+- titres : règles `h1`, `h2`, `h3`
+- textes spécifiques : ex. `.about-hero__eyebrow`, `.c-header__name`, etc.
+
+### Espacements
+
+Dans `style.css`, variables d’échelle :
+- `--space-1` à `--space-5`
+- `--gutter` (marges latérales globales)
+
+Ces variables pilotent la majorité des `gap`, `padding`, `margin`.
+
+### Photo de profil
+
+- Fichier image : `images/identite_sanou.jpg`
+- Référence HTML : `<img class="about-hero__image" src="images/identite_sanou.jpg" ...>` dans `index.html`.
+
+### Liens sociaux
+
+Dans `index.html` :
+- hero About : bloc `.about-hero__links`
+- section Contact : liens `.contact-link`
 
 ## Gestion des anciennes URLs
 
-Les anciennes pages :
+Les anciennes pages (`experience.html`, `projects.html`, `publications.html`, `contact.html`) sont conservées comme **pages de redirection** vers `index.html#...` afin de préserver les liens entrants existants.
 
-- `experience.html`
-- `projects.html`
-- `publications.html`
-- `contact.html`
+## Vérification des URLs après refonte
 
-sont conservées comme **pages de redirection légères** vers `index.html#...` afin de préserver les anciens liens entrants (bookmark, moteur de recherche, partage).
+### Vérification locale (liens internes + fichiers)
 
-## Déploiement (GitHub Pages)
-
-1. Pousser le dépôt sur GitHub.
-2. Aller dans **Settings > Pages**.
-3. Choisir **Deploy from a branch**.
-4. Sélectionner la branche (ex. `main`) et le dossier racine (`/root`).
-5. Enregistrer puis attendre la publication.
-
-## Mise à jour du contenu
-
-- **Contenu principal** : `index.html`
-- **Styles** : `style.css`
-- **Comportement front** : `script.js`
-
-Après modification, vérifier :
-
-1. la navigation par ancres,
-2. les redirections legacy,
-3. les liens externes clés (LinkedIn, GitHub, publications).
-
-## Vérification rapide des liens locaux
-
-Exemple de contrôle local des liens internes/références de fichiers :
+Commande de vérification locale :
 
 ```bash
 python3 - <<'PY'
@@ -68,8 +113,8 @@ from pathlib import Path
 
 root = Path('.')
 html_files = sorted(root.glob('*.html'))
-existing_files = {p.name for p in root.glob('*') if p.is_file()}
 errors = []
+index_ids = set(re.findall(r'id="([^"]+)"', Path('index.html').read_text(encoding='utf-8')))
 
 for html in html_files:
     text = html.read_text(encoding='utf-8')
@@ -83,14 +128,13 @@ for html in html_files:
             if ref[1:] and ref[1:] not in ids and html.name == 'index.html':
                 errors.append(f'{html}: ancre manquante {ref}')
             continue
+
         path, _, anchor = ref.partition('#')
         target = Path(path)
         if path and not target.exists():
             errors.append(f'{html}: cible locale introuvable {ref}')
-        if anchor and target.name == 'index.html':
-            index_ids = set(re.findall(r'id="([^"]+)"', Path('index.html').read_text(encoding='utf-8')))
-            if anchor not in index_ids:
-                errors.append(f'{html}: ancre index introuvable #{anchor}')
+        if anchor and target.name == 'index.html' and anchor not in index_ids:
+            errors.append(f'{html}: ancre index introuvable #{anchor}')
 
 if errors:
     print('ERREURS:')
@@ -100,20 +144,25 @@ print('OK: aucun lien local cassé détecté.')
 PY
 ```
 
-## Check-list QA responsive (avant push)
+### Vérification des URLs externes
 
-- [ ] Vérifier `index.html` en **desktop large** (≥ 1440 px) : menu horizontal, sections alignées, pas de débordement horizontal.
-- [ ] Vérifier en **laptop** (~1366×768) : lisibilité des paragraphes, timeline non tronquée, cartes projets/publications bien espacées.
-- [ ] Vérifier en **tablette portrait/paysage** (~1024×1366 et 1366×1024) : titres de section, contenus et boutons restent lisibles.
-- [ ] Vérifier en **mobile portrait/paysage** (~390×844 et 844×390) : menu burger ouvrable/fermable, navigation utilisable.
-- [ ] Contrôler les points de rupture clés : `@media (max-width: 64rem)`, `48rem`, `30rem`.
-- [ ] Contrôler la section **Publications** : aucun overlap des boutons (`PDF`, `Cite`, `DOI`), clic facile au doigt, aucun bouton hors écran.
-- [ ] Contrôler l’absence de scroll horizontal (`document.documentElement.scrollWidth === clientWidth`).
-- [ ] Vérifier les liens externes principaux (LinkedIn, GitHub, publications) après toute modification de structure.
+- Conseillé : tester régulièrement les URLs externes (GitHub, LinkedIn, IEEE, Netlify) depuis un environnement ayant accès Internet sortant.
+- En CI/terminal restreint, un blocage réseau peut produire de faux négatifs.
 
-## Optimisation front appliquée
+## Mini checklist “avant déploiement Netlify”
 
-- JavaScript réduit aux interactions utiles : menu mobile + lien de navigation actif.
-- CSS restructuré en blocs simples (layout, composants, media queries) et allégé.
-- Suppression des assets images non utilisés pour réduire le poids livré (`images/profile.png` et 3 SVG non référencés).
-- Aucune dépendance backend : le site fonctionne en statique pur (`python -m http.server` suffit pour le test local).
+- [ ] Vérifier `index.html` en desktop + mobile (menu, lisibilité, pas de débordement horizontal).
+- [ ] Valider les ancres (`#about`, `#experience`, `#projects`, `#publications`, `#contact`).
+- [ ] Tester les pages legacy (`experience.html`, `projects.html`, `publications.html`, `contact.html`) : redirection correcte vers la bonne section.
+- [ ] Exécuter la vérification des liens locaux (script Python ci-dessus).
+- [ ] Ouvrir et tester manuellement les principaux liens externes.
+- [ ] Confirmer que la photo de profil se charge correctement.
+- [ ] Déployer sur Netlify puis revalider les liens sur l’URL publique.
+
+## Déploiement (Netlify)
+
+1. Connecter le dépôt Git au dashboard Netlify.
+2. Build command : *(aucune, site statique)*.
+3. Publish directory : `.` (racine du dépôt).
+4. Déployer puis tester l’URL de preview.
+5. Promouvoir en production une fois la checklist validée.
