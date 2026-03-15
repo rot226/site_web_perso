@@ -110,3 +110,10 @@ PY
 - [ ] Contrôler la section **Publications** : aucun overlap des boutons (`PDF`, `Cite`, `DOI`), clic facile au doigt, aucun bouton hors écran.
 - [ ] Contrôler l’absence de scroll horizontal (`document.documentElement.scrollWidth === clientWidth`).
 - [ ] Vérifier les liens externes principaux (LinkedIn, GitHub, publications) après toute modification de structure.
+
+## Optimisation front appliquée
+
+- JavaScript réduit aux interactions utiles : menu mobile + lien de navigation actif.
+- CSS restructuré en blocs simples (layout, composants, media queries) et allégé.
+- Suppression des assets images non utilisés pour réduire le poids livré (`images/profile.png` et 3 SVG non référencés).
+- Aucune dépendance backend : le site fonctionne en statique pur (`python -m http.server` suffit pour le test local).
