@@ -419,7 +419,6 @@ a:hover {
 
 /* 4.3 Cartes Experience / Projects / Publications */
 #experience .l-section__content > ul,
-#projects .l-section__content > ul,
 #publications .l-section__content > ul,
 #publications .l-section__content > ol {
     list-style: none;
@@ -429,7 +428,6 @@ a:hover {
 }
 
 #experience .l-section__content li,
-#projects .l-section__content li,
 #publications .l-section__content li {
     margin: 0;
     padding: var(--space-md);
@@ -439,7 +437,6 @@ a:hover {
     box-shadow: var(--shadow-sm);
 }
 
-#projects .l-section__content li a,
 #publications .l-section__content li a {
     display: inline-flex;
     align-items: center;
@@ -455,7 +452,6 @@ a:hover {
     text-decoration: none;
 }
 
-#projects .l-section__content li a:hover,
 #publications .l-section__content li a:hover {
     background: color-mix(in srgb, var(--accent), transparent 70%);
     transform: translateY(-1px);
@@ -464,25 +460,48 @@ a:hover {
 
 
 
-/* 4.3 ter Project cards */
+/* 4.3 ter Project list (minimal, aligned with publications rhythm) */
 .project-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
     display: grid;
-    gap: var(--space-lg);
+    gap: var(--space-md);
     max-width: 66ch;
 }
 
-.project-card {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    padding: var(--space-md);
-    border-radius: var(--radius-lg);
-    border: 1px solid color-mix(in srgb, var(--muted), transparent 68%);
-    background: linear-gradient(160deg, color-mix(in srgb, var(--surface), transparent 5%), color-mix(in srgb, var(--surface-2), transparent 10%));
-    box-shadow: var(--shadow-sm);
+.project-item {
+    margin: 0;
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--muted), transparent 78%);
 }
 
-.project-card,
+.project-item:last-child {
+    border-bottom: 0;
+}
+
+.project-item p {
+    margin: 0;
+}
+
+.project-item a {
+    display: inline;
+    margin-left: 0.35rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: color-mix(in srgb, #ffffff, var(--accent) 32%);
+    font-size: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.14em;
+}
+
+.project-item a:hover {
+    color: #ffffff;
+}
+
+.project-item,
 .pub-item,
 .contact-card,
 .timeline-card,
@@ -492,54 +511,7 @@ a:hover {
     max-width: 100%;
 }
 
-.project-card__image {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius-md);
-    border: 1px solid color-mix(in srgb, var(--muted), transparent 65%);
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    background: color-mix(in srgb, var(--surface), #091220 25%);
-}
-
-.project-card__body {
-    display: grid;
-    gap: var(--space-sm);
-}
-
-.project-card__title,
-.project-card__summary {
-    margin: 0;
-}
-
-.project-card__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-}
-
-.project-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 5.5rem;
-    padding: 0.4rem 0.78rem;
-    border-radius: var(--radius-pill);
-    border: 1px solid color-mix(in srgb, var(--accent), transparent 35%);
-    background: color-mix(in srgb, var(--accent), transparent 80%);
-    color: #ffffff;
-    font-size: var(--fs-sm);
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.project-cta:hover {
-    background: color-mix(in srgb, var(--accent), transparent 70%);
-    transform: translateY(-1px);
-    text-decoration: none;
-}
-
-.project-cta:focus-visible,
+.project-item a:focus-visible,
 .pub-links a:focus-visible,
 .pub-profile-link a:focus-visible,
 .profile-card__links a:focus-visible {
@@ -688,22 +660,6 @@ a:hover {
    5) MEDIA QUERIES
    ========================================================= */
 @media (min-width: 48.0625rem) {
-    .project-card {
-        flex-direction: row;
-        align-items: stretch;
-    }
-
-    .project-card__image {
-        width: min(40%, 22rem);
-        flex: 0 0 min(40%, 22rem);
-    }
-
-    .project-card__body {
-        flex: 1;
-        align-content: start;
-    }
-
-
     .c-header__menu-toggle {
         display: none;
     }
@@ -836,10 +792,8 @@ a:hover {
         height: 0.84rem;
     }
 
-    .project-card,
     .pub-item,
     #experience .l-section__content li,
-    #projects .l-section__content li,
     #publications .l-section__content li,
     .contact-card,
     .l-section {
@@ -865,9 +819,7 @@ a:hover {
         scroll-behavior: auto !important;
     }
 
-    .project-cta:hover,
     .contact-link:hover,
-    #projects .l-section__content li a:hover,
     #publications .l-section__content li a:hover,
     .pub-links a:hover,
     .pub-profile-link a:hover {
