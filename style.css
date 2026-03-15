@@ -493,8 +493,7 @@ a:hover {
 
 /* 4.3 Cartes Experience / Projects / Publications */
 #experience .l-section__content > ul,
-#publications .l-section__content > ul,
-#publications .l-section__content > ol {
+#publications .l-section__content > ul {
     list-style: none;
     padding-left: 0;
     display: grid;
@@ -511,25 +510,6 @@ a:hover {
     box-shadow: var(--shadow-sm);
 }
 
-#publications .l-section__content li a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    margin-top: var(--space-xs);
-    padding: 0.35rem 0.7rem;
-    border-radius: var(--radius-pill);
-    border: 1px solid color-mix(in srgb, var(--accent), transparent 35%);
-    background: color-mix(in srgb, var(--accent), transparent 80%);
-    color: #ffffff;
-    font-size: var(--fs-sm);
-    font-weight: 600;
-    text-decoration: none;
-}
-
-#publications .l-section__content li a:hover {
-    background: color-mix(in srgb, var(--accent), transparent 70%);
-    transform: translateY(-1px);
-}
 
 
 
@@ -1030,8 +1010,8 @@ a:hover {
 }
 
 .pub-list {
-    list-style: none;
-    padding-left: 0;
+    list-style: decimal;
+    padding-left: 1.35rem;
     margin: 0;
     display: grid;
     gap: var(--space-md);
@@ -1049,6 +1029,7 @@ a:hover {
 
 .pub-item p {
     margin-bottom: var(--space-2xs);
+    overflow-wrap: anywhere;
 }
 
 .pub-authors,
@@ -1075,18 +1056,39 @@ a:hover {
     font-weight: 700;
 }
 
+
+.pub-title-link {
+    color: #f6fbff;
+    font-weight: 650;
+    text-decoration: underline;
+    text-underline-offset: 0.14em;
+}
+
+.pub-title-link:hover {
+    color: #ffffff;
+}
+
+.pub-doi a {
+    color: #cde8ff;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+    overflow-wrap: anywhere;
+}
+
 .pub-links {
     margin-top: var(--space-sm);
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-xs);
+    align-items: stretch;
 }
 
 .c-secondary-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 4.2rem;
+    min-width: 6.4rem;
+    min-height: 2.1rem;
     padding: 0.35rem 0.68rem;
     border-radius: var(--radius-pill);
     border: 1px solid color-mix(in srgb, var(--accent), transparent 35%);
