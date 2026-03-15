@@ -1,6 +1,6 @@
-# Personal website (static)
+# Personal website (static, one-page)
 
-This repository contains a **static academic showcase website**.
+This repository contains a **static one-page academic showcase website**.
 
 ## Tech stack
 
@@ -9,9 +9,15 @@ This repository contains a **static academic showcase website**.
 - **Vanilla JavaScript** for:
   - active navigation highlighting,
   - mobile menu behavior,
-  - link state synchronization.
+  - anchor link state synchronization.
 
 No backend is required to run this site.
+
+## Site architecture
+
+The website is now **single-page only**: all content is centralized in `index.html` and navigated via anchors (`#about`, `#experience`, `#projects`, `#publications`, `#contact`).
+
+Legacy secondary HTML files (`experience.html`, `projects.html`, `publications.html`, `contact.html`) are kept only as lightweight redirects to preserve old links.
 
 ## Deployment
 
@@ -27,12 +33,8 @@ The website can be deployed easily with **GitHub Pages**.
 
 ## How to update content
 
-- **Home page** (`index.html`): profile, summary, highlights, contact block.
-- **Experience** (`experience.html`): timeline items and role descriptions.
-- **Projects** (`projects.html`): each `<article class="project-card">` block (`Paper`, `Code`, `Website` links).
-- **Publications** (`publications.html`): edit entries inside `<ol class="pub-list">` by updating each `<li class="pub-item">` block (`.pub-authors`, `.pub-main`, `.pub-venue`, `.pub-doi`, and `.pub-links`).
-- **Contact** (`contact.html`): update the main LinkedIn contact CTA in `<article class="contact-card">` (`<a class="contact-link" ...>`), and optional GitHub follow link in the home page contact section (`index.html`, `.profile-card__links`).
+- **Main page** (`index.html`): profile, summary, experience, projects, publications, and contact sections.
 - **Styles** (`style.css`): global tokens, components, responsive rules.
-- **Front-end behavior** (`script.js`): mobile navigation and active-link logic.
+- **Front-end behavior** (`script.js`): mobile navigation and active-link logic for one-page anchors.
 
-> Tip: after each content update, open the modified pages locally and verify all external links before pushing.
+> Tip: after each content update, open `index.html` locally and verify internal anchors and external links before pushing.
