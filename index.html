@@ -15,10 +15,10 @@
 <body>
     <header class="c-header">
         <div class="c-header__name">François d’Assise Sanou</div>
-        <button class="c-header__menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open main menu">☰</button>
+        <button class="c-header__menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open main menu" aria-haspopup="true">☰</button>
         <nav id="primary-navigation" class="c-nav" aria-label="Primary navigation">
             <ul class="c-nav__list">
-                <li class="c-nav__item"><a href="#about" class="c-nav__link" aria-current="location">About</a></li>
+                <li class="c-nav__item"><a href="#about" class="c-nav__link" aria-current="page">About</a></li>
                 <li class="c-nav__item"><a href="#experience" class="c-nav__link">Experience</a></li>
                 <li class="c-nav__item"><a href="#projects" class="c-nav__link">Projects</a></li>
                 <li class="c-nav__item"><a href="#publications" class="c-nav__link">Publications</a></li>
@@ -33,7 +33,7 @@
             <div class="l-section__content">
                 <div class="about-layout">
                     <article class="profile-card" aria-label="Profile">
-                        <img class="profile-card__image" src="images/identite_sanou.jpg" alt="Portrait of François d’Assise Sanou" width="1072" height="1280" loading="lazy" decoding="async">
+                        <img class="profile-card__image" src="images/identite_sanou.jpg" alt="Portrait photo of François d’Assise Sanou" width="1072" height="1280" loading="eager" fetchpriority="high" decoding="async">
                         <h1 class="profile-card__name">François d’Assise Sanou</h1>
                         <p class="profile-card__role">Wireless Networks Researcher · PhD Candidate</p>
                         <p class="profile-card__affiliation">Department of Computer Science, Nazi Boni University, Burkina Faso</p>

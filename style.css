@@ -5,9 +5,9 @@
     --bg: #0c1624;
     --surface: #122338;
     --surface-2: #162b44;
-    --text: #e2e8f0;
-    --muted: #bfd0e2;
-    --accent: #2ca6ff;
+    --text: #eaf2fb;
+    --muted: #cfdeed;
+    --accent: #54b9ff;
 
     --radius-sm: 0.45rem;
     --radius-md: 0.75rem;
@@ -145,7 +145,7 @@ a:hover {
 .l-section__title {
     position: sticky;
     top: var(--space-lg);
-    color: #f8fbff;
+    color: #ffffff;
 }
 
 .l-section__content {
@@ -203,7 +203,7 @@ a:hover {
 .page-title {
     margin: 0 0 var(--space-lg);
     font-size: var(--fs-2xl);
-    color: #f8fbff;
+    color: #ffffff;
 }
 
 .c-header__menu-toggle {
@@ -219,16 +219,19 @@ a:hover {
     cursor: pointer;
 }
 
-.c-header__menu-toggle:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+.c-header__menu-toggle:hover,
+.c-header__menu-toggle:focus-visible {
+    border-color: #9fd9ff;
+    color: #ffffff;
+    background: color-mix(in srgb, var(--accent), transparent 80%);
 }
 
 .c-header__menu-toggle:focus-visible,
 .c-nav__link:focus-visible,
 .contact-link:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
+    outline: 3px solid #a8ddff;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 2px rgba(8, 24, 38, 0.9);
 }
 
 .c-nav {
@@ -254,6 +257,10 @@ a:hover {
     opacity: 1;
 }
 
+.c-nav__list[hidden] {
+    display: none !important;
+}
+
 .c-nav__link {
     color: var(--text);
     font-weight: 500;
@@ -265,15 +272,15 @@ a:hover {
 }
 
 .c-nav__link:hover {
-    color: var(--accent);
+    color: #ffffff;
     background: color-mix(in srgb, var(--accent), transparent 88%);
     text-decoration: none;
 }
 
 .c-nav__link.active {
-    color: #f6fbff;
-    background: color-mix(in srgb, var(--accent), transparent 84%);
-    border-color: color-mix(in srgb, var(--accent), transparent 60%);
+    color: #ffffff;
+    background: color-mix(in srgb, var(--accent), transparent 76%);
+    border-color: color-mix(in srgb, var(--accent), transparent 42%);
 }
 
 .c-nav__link.active:focus-visible {
@@ -386,8 +393,8 @@ a:hover {
     padding: 0.38rem 0.75rem;
     border-radius: var(--radius-pill);
     border: 1px solid color-mix(in srgb, var(--accent), transparent 35%);
-    background: color-mix(in srgb, var(--accent), transparent 86%);
-    color: #dff1ff;
+    background: color-mix(in srgb, var(--accent), transparent 80%);
+    color: #ffffff;
     font-size: var(--fs-sm);
     font-weight: 600;
 }
@@ -441,8 +448,8 @@ a:hover {
     padding: 0.35rem 0.7rem;
     border-radius: var(--radius-pill);
     border: 1px solid color-mix(in srgb, var(--accent), transparent 35%);
-    background: color-mix(in srgb, var(--accent), transparent 86%);
-    color: #dff1ff;
+    background: color-mix(in srgb, var(--accent), transparent 80%);
+    color: #ffffff;
     font-size: var(--fs-sm);
     font-weight: 600;
     text-decoration: none;
@@ -450,7 +457,7 @@ a:hover {
 
 #projects .l-section__content li a:hover,
 #publications .l-section__content li a:hover {
-    background: color-mix(in srgb, var(--accent), transparent 78%);
+    background: color-mix(in srgb, var(--accent), transparent 70%);
     transform: translateY(-1px);
 }
 
@@ -518,17 +525,26 @@ a:hover {
     padding: 0.4rem 0.78rem;
     border-radius: var(--radius-pill);
     border: 1px solid color-mix(in srgb, var(--accent), transparent 35%);
-    background: color-mix(in srgb, var(--accent), transparent 86%);
-    color: #dff1ff;
+    background: color-mix(in srgb, var(--accent), transparent 80%);
+    color: #ffffff;
     font-size: var(--fs-sm);
     font-weight: 600;
     text-decoration: none;
 }
 
 .project-cta:hover {
-    background: color-mix(in srgb, var(--accent), transparent 78%);
+    background: color-mix(in srgb, var(--accent), transparent 70%);
     transform: translateY(-1px);
     text-decoration: none;
+}
+
+.project-cta:focus-visible,
+.pub-links a:focus-visible,
+.pub-profile-link a:focus-visible,
+.profile-card__links a:focus-visible {
+    outline: 3px solid #a8ddff;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 2px rgba(8, 24, 38, 0.9);
 }
 
 /* 4.3 bis Timeline Experience */
@@ -625,8 +641,8 @@ a:hover {
     padding: 0.7rem 1rem;
     border-radius: var(--radius-pill);
     border: 1px solid color-mix(in srgb, var(--accent), transparent 30%);
-    background: color-mix(in srgb, var(--accent), transparent 84%);
-    color: #eaf6ff;
+    background: color-mix(in srgb, var(--accent), transparent 70%);
+    color: #ffffff;
     font-weight: 600;
     line-height: 1;
     transition: transform 0.2s ease, background-color 0.2s ease;
@@ -857,8 +873,8 @@ a:hover {
     padding: 0.38rem 0.78rem;
     border-radius: var(--radius-pill);
     border: 1px solid color-mix(in srgb, var(--accent), transparent 35%);
-    background: color-mix(in srgb, var(--accent), transparent 86%);
-    color: #dff1ff;
+    background: color-mix(in srgb, var(--accent), transparent 80%);
+    color: #ffffff;
     font-weight: 600;
     text-decoration: none;
 }
@@ -923,8 +939,8 @@ a:hover {
     padding: 0.35rem 0.68rem;
     border-radius: var(--radius-pill);
     border: 1px solid color-mix(in srgb, var(--accent), transparent 35%);
-    background: color-mix(in srgb, var(--accent), transparent 86%);
-    color: #dff1ff;
+    background: color-mix(in srgb, var(--accent), transparent 80%);
+    color: #ffffff;
     font-size: var(--fs-sm);
     font-weight: 600;
     text-decoration: none;
@@ -932,7 +948,7 @@ a:hover {
 
 .pub-links a:hover,
 .pub-profile-link a:hover {
-    background: color-mix(in srgb, var(--accent), transparent 78%);
+    background: color-mix(in srgb, var(--accent), transparent 70%);
     transform: translateY(-1px);
     text-decoration: none;
 }
