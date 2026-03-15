@@ -34,25 +34,28 @@
         <section id="about" class="l-section l-section--about" aria-labelledby="about-title">
             <h2 id="about-title" class="l-section__title">About</h2>
             <div class="l-section__content">
-                <div class="about-layout">
-                    <article class="profile-card" aria-label="Profile">
-                        <img class="profile-card__image" src="images/identite_sanou.jpg" alt="Portrait photo of François d’Assise Sanou" width="1072" height="1280" loading="eager" fetchpriority="high" decoding="async">
-                        <h3 class="profile-card__name">François d’Assise Sanou</h3>
-                        <p class="profile-card__role">Wireless Networks Researcher · PhD Candidate</p>
-                        <p class="profile-card__affiliation">Department of Computer Science, Nazi Boni University, Burkina Faso</p>
-                        <div class="profile-card__links">
+                <article class="about-hero" aria-label="Academic Hero">
+                    <div class="about-hero__media">
+                        <img class="about-hero__image" src="images/identite_sanou.jpg" alt="Portrait photo of François d’Assise Sanou" width="1072" height="1280" loading="eager" fetchpriority="high" decoding="async" sizes="(min-width: 992px) 16rem, (min-width: 577px) 13.5rem, 60vw">
+                    </div>
+
+                    <div class="about-hero__content">
+                        <p class="about-hero__eyebrow">Wireless Networks Researcher</p>
+                        <h3 class="about-hero__name">François d’Assise Sanou</h3>
+                        <p class="about-hero__subtitle">PhD Candidate in Computer Science · LPWAN Systems and LoRaWAN Performance</p>
+                        <p class="about-hero__affiliation">Department of Computer Science, Nazi Boni University, Burkina Faso</p>
+                        <div class="about-hero__links">
                             <a href="https://www.linkedin.com/in/fran%C3%A7ois-d-assise-sanou-a57066200/" target="_blank" rel="noopener noreferrer" aria-label="Open François d’Assise Sanou LinkedIn profile (françois-d-assise-sanou-a57066200)">LinkedIn</a>
                             <a href="https://github.com/sanoufrancois226-crypto" target="_blank" rel="noopener noreferrer" aria-label="Open François d’Assise Sanou GitHub profile">GitHub</a>
                         </div>
-                    </article>
-
-                    <article class="research-summary" aria-label="Research Summary">
-                        <h3>Research Summary</h3>
-                        <p>I design and evaluate LoRa/LoRaWAN communication strategies for dense and heterogeneous IoT deployments. My work combines reproducible simulation campaigns and analytical modeling to characterize packet delivery ratio, energy use, and end-to-end latency under realistic traffic and propagation constraints.</p>
-                        <p>Through <a href="https://loraflexsim.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Open LoRaFlexSim project website">LoRaFlexSim</a>, I build modular simulation workflows that support scenario scaling, algorithm benchmarking, and protocol-level experimentation. The framework enables controlled comparisons of ADR policies, gateway placement strategies, and MAC-layer configurations with traceable performance indicators.</p>
-                        <p>I focus on measurable contributions: reducing collision rates, improving fairness across spreading factors, and increasing network capacity while preserving battery lifetime. This orientation guides both my current doctoral research and collaborative open-source development for LPWAN researchers and practitioners.</p>
-                    </article>
-                </div>
+                        <div class="about-hero__summary" aria-label="Research Summary">
+                            <h4>Research Summary</h4>
+                            <p>I design and evaluate LoRa/LoRaWAN communication strategies for dense and heterogeneous IoT deployments. My work combines reproducible simulation campaigns and analytical modeling to characterize packet delivery ratio, energy use, and end-to-end latency under realistic traffic and propagation constraints.</p>
+                            <p>Through <a href="https://loraflexsim.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Open LoRaFlexSim project website">LoRaFlexSim</a>, I build modular simulation workflows that support scenario scaling, algorithm benchmarking, and protocol-level experimentation. The framework enables controlled comparisons of ADR policies, gateway placement strategies, and MAC-layer configurations with traceable performance indicators.</p>
+                            <p>I focus on measurable contributions: reducing collision rates, improving fairness across spreading factors, and increasing network capacity while preserving battery lifetime. This orientation guides both my current doctoral research and collaborative open-source development for LPWAN researchers and practitioners.</p>
+                        </div>
+                    </div>
+                </article>
 
                 <div class="about-subsections">
                     <article class="about-subsection" aria-label="Research Interests">
@@ -217,7 +220,7 @@
                     </a>
                 </article>
                 <p class="contact-card__intro">You can also follow project updates on GitHub.</p>
-                <div class="profile-card__links">
+                <div class="about-hero__links">
                     <a href="https://github.com/sanoufrancois226-crypto" target="_blank" rel="noopener noreferrer" aria-label="Open François d’Assise Sanou GitHub profile">GitHub profile</a>
                 </div>
             </div>
