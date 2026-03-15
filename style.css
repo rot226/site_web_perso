@@ -35,6 +35,7 @@
     --container-max: 68rem;
     --page-gutter: clamp(0.9rem, 0.55rem + 1.2vw, 1.6rem);
     --section-title-width: clamp(8rem, 13vw, 11.2rem);
+    --section-gap: var(--space-xl);
 }
 
 /* =========================================================
@@ -123,6 +124,8 @@ a:hover {
 
 .l-page-main {
     padding-block: var(--space-2xl);
+    display: grid;
+    gap: var(--section-gap);
 }
 
 .l-section {
@@ -130,7 +133,6 @@ a:hover {
     grid-template-columns: minmax(0, var(--section-title-width)) minmax(0, 1fr);
     column-gap: var(--space-xl);
     align-items: start;
-    margin-bottom: var(--space-xl);
     padding: var(--space-lg);
     border: 1px solid color-mix(in srgb, var(--muted), transparent 76%);
     border-radius: var(--radius-lg);
@@ -138,14 +140,11 @@ a:hover {
     box-shadow: var(--shadow-sm);
 }
 
-.l-section:last-child {
-    margin-bottom: 0;
-}
-
 .l-section__title {
     position: sticky;
     top: var(--space-lg);
     color: #ffffff;
+    margin-bottom: 0;
 }
 
 .l-section__content {
@@ -485,20 +484,7 @@ a:hover {
 }
 
 .project-item a {
-    display: inline;
     margin-left: 0.35rem;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: color-mix(in srgb, #ffffff, var(--accent) 32%);
-    font-size: inherit;
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 0.14em;
-}
-
-.project-item a:hover {
-    color: #ffffff;
 }
 
 .project-item,
@@ -512,7 +498,7 @@ a:hover {
 }
 
 .project-item a:focus-visible,
-.pub-links a:focus-visible,
+.c-secondary-link:focus-visible,
 .pub-profile-link a:focus-visible,
 .profile-card__links a:focus-visible {
     outline: 3px solid #a8ddff;
@@ -702,7 +688,6 @@ a:hover {
         grid-template-columns: 1fr;
         row-gap: var(--space-sm);
         padding: var(--space-lg);
-        margin-bottom: var(--space-lg);
     }
 
     .about-layout,
@@ -821,7 +806,7 @@ a:hover {
 
     .contact-link:hover,
     #publications .l-section__content li a:hover,
-    .pub-links a:hover,
+    .c-secondary-link:hover,
     .pub-profile-link a:hover {
         transform: none;
     }
@@ -897,7 +882,7 @@ a:hover {
     gap: var(--space-xs);
 }
 
-.pub-links a {
+.c-secondary-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -912,7 +897,7 @@ a:hover {
     text-decoration: none;
 }
 
-.pub-links a:hover,
+.c-secondary-link:hover,
 .pub-profile-link a:hover {
     background: color-mix(in srgb, var(--accent), transparent 70%);
     transform: translateY(-1px);
