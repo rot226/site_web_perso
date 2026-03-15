@@ -14,7 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!nav || !menuButton) return;
         nav.classList.toggle('c-nav--open', open);
         menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? 'Close main menu' : 'Open main menu');
     };
+
+    if (menuButton) {
+        menuButton.setAttribute('aria-label', 'Open main menu');
+    }
 
     const updateActiveLink = () => {
         const currentPath = normalizePath(window.location.pathname);

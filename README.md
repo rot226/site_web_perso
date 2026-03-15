@@ -30,8 +30,8 @@ The website can be deployed easily with **GitHub Pages**.
 - **Home page** (`index.html`): profile, summary, highlights, contact block.
 - **Experience** (`experience.html`): timeline items and role descriptions.
 - **Projects** (`projects.html`): each `<article class="project-card">` block (`Paper`, `Code`, `Website` links).
-- **Publications** (`publications.html`): each `<li class="pub-item">` entry (authors, title, year, venue, DOI, links).
-- **Contact** (`contact.html`): LinkedIn-only contact card.
+- **Publications** (`publications.html`): edit entries inside `<ol class="pub-list">` by updating each `<li class="pub-item">` block (`.pub-authors`, `.pub-main`, `.pub-venue`, `.pub-doi`, and `.pub-links`).
+- **Contact** (`contact.html`): update the main LinkedIn contact CTA in `<article class="contact-card">` (`<a class="contact-link" ...>`), and optional GitHub follow link in the home page contact section (`index.html`, `.profile-card__links`).
 - **Styles** (`style.css`): global tokens, components, responsive rules.
 - **Front-end behavior** (`script.js`): mobile navigation and active-link logic.
 
