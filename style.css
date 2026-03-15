@@ -183,6 +183,30 @@ ul, ol { padding-left: 1.2rem; }
     border-color: color-mix(in srgb, var(--accent), transparent 42%);
 }
 
+
+.no-js .c-header__menu-toggle {
+    display: none;
+}
+
+.no-js .c-nav {
+    width: auto;
+    margin-left: auto;
+}
+
+.no-js .c-nav__list {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+}
+
 /* About */
 .about-hero,
 .about-subsection,
