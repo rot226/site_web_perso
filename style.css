@@ -51,6 +51,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: clip;
 }
 
 body {
@@ -60,6 +61,7 @@ body {
     color: var(--text);
     line-height: var(--line-height-base);
     font-size: var(--font-size-base);
+    overflow-x: clip;
 }
 
 img,
@@ -118,6 +120,14 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #a8ddff;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 2px rgba(8, 24, 38, 0.9);
+    text-decoration: none;
 }
 
 .u-visually-hidden {
@@ -223,6 +233,7 @@ a:hover {
 .c-header__name {
     font-size: var(--fs-lg);
     font-weight: 650;
+    overflow-wrap: anywhere;
 }
 
 .page-title {
@@ -742,7 +753,8 @@ a:hover {
 }
 
 .contact-link__label {
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 /* 4.6 Footer */
