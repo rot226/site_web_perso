@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentHash = window.location.hash;
 
         navLinks.forEach((link) => {
-            const url = new URL(link.getAttribute('href'), window.location.origin);
+            const url = new URL(link.getAttribute('href'), window.location.href);
             const linkPath = normalizePath(url.pathname);
             const linkHash = url.hash;
 
