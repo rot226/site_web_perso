@@ -10,10 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return path.endsWith('/') ? `${path}index.html` : path;
     };
 
+    const isIndexPath = (path) => normalizePath(path).endsWith('/index.html');
+
     const setMenuOpen = (open) => {
         if (!nav || !menuButton) return;
         nav.classList.toggle('c-nav--open', open);
         menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     };
 
     const updateActiveLink = () => {
@@ -21,12 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentHash = window.location.hash;
 
         navLinks.forEach((link) => {
-            const url = new URL(link.getAttribute('href'), window.location.origin);
+            const url = new URL(link.getAttribute('href'), window.location.href);
             const linkPath = normalizePath(url.pathname);
             const linkHash = url.hash;
 
-            const hashMatch = linkHash && linkPath === currentPath && linkHash === currentHash;
-            const indexDefault = !currentHash && currentPath === '/index.html' && linkPath === '/index.html' && linkHash === '#about';
+            const hashMatch = Boolean(linkHash) && linkPath === currentPath && linkHash === currentHash;
+            const indexDefault = !currentHash && isIndexPath(currentPath) && isIndexPath(linkPath) && linkHash === '#about';
             const pageMatch = !linkHash && linkPath === currentPath;
             const isActive = hashMatch || indexDefault || pageMatch;
 
