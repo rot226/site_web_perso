@@ -1,47 +1,108 @@
-# Personal website (static, one-page)
+# Site personnel (statique, architecture single-page)
 
-This repository contains a **static one-page academic showcase website**.
+Ce dépôt contient un **site académique statique en page unique**.
 
-## Tech stack
+## Stack technique
 
-- **HTML** for page structure.
-- **CSS** for presentation and responsive layout.
-- **Vanilla JavaScript** for:
-  - active navigation highlighting,
-  - mobile menu behavior,
-  - anchor link state synchronization.
+- **HTML** pour la structure.
+- **CSS** pour la mise en forme et le responsive.
+- **JavaScript vanilla** pour :
+  - le surlignage du lien de navigation actif,
+  - le comportement du menu mobile,
+  - la synchronisation avec les ancres (`hash`).
 
-No backend is required to run this site.
+Aucun backend n'est nécessaire.
 
-## Site architecture
+## Architecture single-page
 
-The website is now **single-page only**: all content is centralized in `index.html` and navigated via anchors (`#about`, `#experience`, `#projects`, `#publications`, `#contact`).
+Le site repose sur **une seule page de contenu : `index.html`**.
 
-Legacy secondary HTML files (`experience.html`, `projects.html`, `publications.html`, `contact.html`) are kept only as lightweight redirects to preserve old links.
+- Toutes les sections sont dans `index.html` :
+  - `#about`
+  - `#experience`
+  - `#projects`
+  - `#publications`
+  - `#contact`
+- La navigation principale utilise uniquement des ancres internes (`href="#..."`).
+- Le script front (`script.js`) valide et normalise le hash courant pour rester sur ces sections.
 
-## Deployment
+## Gestion des anciennes URLs
 
-The website can be deployed easily with **GitHub Pages**.
+Les anciennes pages :
 
-### Quick option (`main` branch)
+- `experience.html`
+- `projects.html`
+- `publications.html`
+- `contact.html`
 
-1. Push the repository to GitHub.
-2. Open **Settings > Pages**.
-3. Choose source: **Deploy from a branch**.
-4. Select branch (`main`) and root folder (`/root`).
-5. Save and wait for publication.
+sont conservées comme **pages de redirection légères** vers `index.html#...` afin de préserver les anciens liens entrants (bookmark, moteur de recherche, partage).
 
-## How to update content
+## Déploiement (GitHub Pages)
 
-- **Main page** (`index.html`): profile, summary, experience, projects, publications, and contact sections.
-- **Styles** (`style.css`): global tokens, components, responsive rules.
-- **Front-end behavior** (`script.js`): mobile navigation and active-link logic for one-page anchors.
+1. Pousser le dépôt sur GitHub.
+2. Aller dans **Settings > Pages**.
+3. Choisir **Deploy from a branch**.
+4. Sélectionner la branche (ex. `main`) et le dossier racine (`/root`).
+5. Enregistrer puis attendre la publication.
 
-> Tip: after each content update, open `index.html` locally and verify internal anchors and external links before pushing.
+## Mise à jour du contenu
 
-## Mini check-list QA responsive (avant push)
+- **Contenu principal** : `index.html`
+- **Styles** : `style.css`
+- **Comportement front** : `script.js`
 
-- [ ] Vérifier la page `index.html` en **desktop large** (≥ 1440 px) : menu horizontal, sections alignées, pas de débordement horizontal.
+Après modification, vérifier :
+
+1. la navigation par ancres,
+2. les redirections legacy,
+3. les liens externes clés (LinkedIn, GitHub, publications).
+
+## Vérification rapide des liens locaux
+
+Exemple de contrôle local des liens internes/références de fichiers :
+
+```bash
+python3 - <<'PY'
+import re
+from pathlib import Path
+
+root = Path('.')
+html_files = sorted(root.glob('*.html'))
+existing_files = {p.name for p in root.glob('*') if p.is_file()}
+errors = []
+
+for html in html_files:
+    text = html.read_text(encoding='utf-8')
+    ids = set(re.findall(r'id="([^"]+)"', text))
+    refs = re.findall(r'(?:href|src)="([^"]+)"', text)
+
+    for ref in refs:
+        if ref.startswith(('http://', 'https://', 'mailto:', 'tel:')):
+            continue
+        if ref.startswith('#'):
+            if ref[1:] and ref[1:] not in ids and html.name == 'index.html':
+                errors.append(f'{html}: ancre manquante {ref}')
+            continue
+        path, _, anchor = ref.partition('#')
+        target = Path(path)
+        if path and not target.exists():
+            errors.append(f'{html}: cible locale introuvable {ref}')
+        if anchor and target.name == 'index.html':
+            index_ids = set(re.findall(r'id="([^"]+)"', Path('index.html').read_text(encoding='utf-8')))
+            if anchor not in index_ids:
+                errors.append(f'{html}: ancre index introuvable #{anchor}')
+
+if errors:
+    print('ERREURS:')
+    print('\n'.join(errors))
+    raise SystemExit(1)
+print('OK: aucun lien local cassé détecté.')
+PY
+```
+
+## Check-list QA responsive (avant push)
+
+- [ ] Vérifier `index.html` en **desktop large** (≥ 1440 px) : menu horizontal, sections alignées, pas de débordement horizontal.
 - [ ] Vérifier en **laptop** (~1366×768) : lisibilité des paragraphes, timeline non tronquée, cartes projets/publications bien espacées.
 - [ ] Vérifier en **tablette portrait/paysage** (~1024×1366 et 1366×1024) : titres de section, contenus et boutons restent lisibles.
 - [ ] Vérifier en **mobile portrait/paysage** (~390×844 et 844×390) : menu burger ouvrable/fermable, navigation utilisable.
