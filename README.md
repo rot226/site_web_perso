@@ -1,44 +1,38 @@
-# Site web personnel (statique)
+# Personal website (static)
 
-Ce dépôt contient un **site web statique** de présentation académique.
+This repository contains a **static academic showcase website**.
 
-## Stack technique
+## Tech stack
 
-- **HTML** pour la structure des pages.
-- **CSS** pour la mise en forme.
-- **JavaScript** (vanilla) pour :
-  - la navigation active,
-  - le menu mobile,
-  - la gestion d’état des liens.
+- **HTML** for page structure.
+- **CSS** for presentation and responsive layout.
+- **Vanilla JavaScript** for:
+  - active navigation highlighting,
+  - mobile menu behavior,
+  - link state synchronization.
 
-Aucun backend n’est nécessaire pour faire fonctionner ce site.
+No backend is required to run this site.
 
-## Déploiement
+## Deployment
 
-Le site peut être déployé facilement sur **GitHub Pages**.
+The website can be deployed easily with **GitHub Pages**.
 
-### Option rapide (branche `main`)
+### Quick option (`main` branch)
 
-1. Pousser le dépôt sur GitHub.
-2. Aller dans **Settings > Pages**.
-3. Choisir la source : **Deploy from a branch**.
-4. Sélectionner la branche (`main`) et le dossier racine (`/root`).
-5. Enregistrer puis attendre la publication.
+1. Push the repository to GitHub.
+2. Open **Settings > Pages**.
+3. Choose source: **Deploy from a branch**.
+4. Select branch (`main`) and root folder (`/root`).
+5. Save and wait for publication.
 
 ## How to update content
 
-Pour modifier rapidement le contenu :
+- **Home page** (`index.html`): profile, summary, highlights, contact block.
+- **Experience** (`experience.html`): timeline items and role descriptions.
+- **Projects** (`projects.html`): each `<article class="project-card">` block (`Paper`, `Code`, `Website` links).
+- **Publications** (`publications.html`): each `<li class="pub-item">` entry (authors, title, year, venue, DOI, links).
+- **Contact** (`contact.html`): LinkedIn-only contact card.
+- **Styles** (`style.css`): global tokens, components, responsive rules.
+- **Front-end behavior** (`script.js`): mobile navigation and active-link logic.
 
-- **Accueil (about, expérience, aperçu projets/publications, contact)** : éditer `index.html`.
-- **Expérience détaillée** : éditer `experience.html`.
-- **Projets** :
-  - éditer les blocs `<article class="project-card">` dans `projects.html`,
-  - mettre à jour le titre, résumé et liens (`Paper`, `Code`, `Website`).
-- **Publications** :
-  - éditer les blocs `<li class="pub-item">` dans `publications.html`,
-  - ajuster auteurs, titre, année, venue, DOI et liens.
-- **Contact** : éditer `contact.html` (lien LinkedIn) et/ou le bloc contact de `index.html`.
-- **Styles** : éditer `style.css`.
-- **Comportement front-end** (menu mobile/navigation active) : éditer `script.js`.
-
-> Conseil : après chaque modification de contenu, ouvrir localement les pages concernées et vérifier les liens externes avant de pousser.
+> Tip: after each content update, open the modified pages locally and verify all external links before pushing.
