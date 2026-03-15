@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('#primary-navigation');
+    const navList = nav?.querySelector('.c-nav__list') ?? null;
     const menuButton = document.querySelector('.c-header__menu-toggle');
     const navLinks = Array.from(document.querySelectorAll('.c-nav__link'));
     const sectionIds = new Set(
@@ -14,11 +15,27 @@ document.addEventListener('DOMContentLoaded', () => {
         return sectionIds.has(id) ? `#${id}` : '#about';
     };
 
+    const syncNavVisibility = (open) => {
+        if (!navList) return;
+
+        if (isMobile()) {
+            navList.hidden = !open;
+        } else {
+            navList.hidden = false;
+        }
+    };
+
     const setMenuOpen = (open) => {
         if (!nav || !menuButton) return;
+
         nav.classList.toggle('c-nav--open', open);
         menuButton.setAttribute('aria-expanded', String(open));
         menuButton.setAttribute('aria-label', open ? 'Close main menu' : 'Open main menu');
+        syncNavVisibility(open);
+
+        if (open && isMobile()) {
+            navLinks[0]?.focus();
+        }
     };
 
     if (menuButton) {
@@ -41,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             link.classList.toggle('active', isActive);
             if (isActive) {
-                link.setAttribute('aria-current', 'location');
+                link.setAttribute('aria-current', 'page');
             } else {
                 link.removeAttribute('aria-current');
             }
@@ -50,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ensureValidHash();
     updateActiveLink();
+    syncNavVisibility(false);
 
     window.addEventListener('hashchange', () => {
         ensureValidHash();
@@ -69,6 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && nav.classList.contains('c-nav--open')) {
+            setMenuOpen(false);
+            menuButton.focus();
+        }
+    });
+
     document.addEventListener('click', (event) => {
         if (!isMobile()) return;
         if (!nav.contains(event.target) && !menuButton.contains(event.target)) {
@@ -77,6 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('resize', () => {
-        if (!isMobile()) setMenuOpen(false);
+        if (!isMobile()) {
+            setMenuOpen(false);
+        } else {
+            syncNavVisibility(nav.classList.contains('c-nav--open'));
+        }
     });
 });
