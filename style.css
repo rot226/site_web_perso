@@ -184,11 +184,7 @@ a:hover {
 .l-section__content p,
 .l-section__content li,
 .l-section__content a,
-.l-section__content h3,
-.l-section__content label,
-.l-section__content input,
-.l-section__content textarea,
-.l-section__content button {
+.l-section__content h3 {
     overflow-wrap: anywhere;
 }
 
@@ -683,19 +679,31 @@ a:hover {
 
 /* 4.4 Contact */
 .contact-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    display: grid;
     gap: var(--space-sm);
+    max-width: 28rem;
     padding: var(--space-md);
-    border: 1px solid color-mix(in srgb, var(--muted), transparent 65%);
-    border-radius: var(--radius-lg);
-    background: linear-gradient(145deg, color-mix(in srgb, var(--surface), transparent 6%), color-mix(in srgb, var(--surface-2), transparent 6%));
-    box-shadow: var(--shadow-sm);
+    border: 1px solid color-mix(in srgb, var(--muted), transparent 72%);
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--surface), #0a1421 22%);
+    box-shadow: none;
 }
 
 .contact-card__intro {
+    margin: 0;
+    color: #dbe9f7;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-xs);
+    width: 100%;
+}
+
+.contact-list li {
     margin: 0;
 }
 
@@ -703,22 +711,22 @@ a:hover {
     display: inline-flex;
     align-items: center;
     gap: var(--space-xs);
-    padding: 0.7rem 1rem;
-    border-radius: var(--radius-pill);
-    border: 1px solid color-mix(in srgb, var(--accent), transparent 30%);
-    background: color-mix(in srgb, var(--accent), transparent 70%);
-    color: #ffffff;
-    font-weight: 600;
-    line-height: 1;
-    transition: transform 0.2s ease, background-color 0.2s ease;
     width: 100%;
-    justify-content: center;
+    min-height: 2.5rem;
+    padding: 0.58rem 0.8rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid color-mix(in srgb, var(--muted), transparent 62%);
+    background: color-mix(in srgb, var(--surface-2), transparent 26%);
+    color: #f5faff;
+    font-weight: 600;
+    line-height: 1.2;
+    transition: background-color 0.2s ease;
+    justify-content: flex-start;
 }
 
 .contact-link:hover {
     text-decoration: none;
-    background: color-mix(in srgb, var(--accent), transparent 75%);
-    transform: translateY(-1px);
+    background: color-mix(in srgb, var(--surface-2), transparent 12%);
 }
 
 .contact-link__icon {
@@ -821,15 +829,6 @@ a:hover {
         max-width: 100%;
     }
 
-    .contact-card {
-        flex-direction: row;
-        align-items: center;
-        gap: var(--space-md);
-    }
-
-    .contact-link {
-        width: auto;
-    }
 }
 
 @media (min-width: 992px) {
@@ -906,16 +905,6 @@ a:hover {
         max-width: 66ch;
     }
 
-    .contact-card {
-        flex-direction: row;
-        align-items: center;
-        gap: var(--space-lg);
-        padding: var(--space-lg);
-    }
-
-    .contact-link {
-        width: auto;
-    }
 }
 
 @media (max-width: 30rem) {

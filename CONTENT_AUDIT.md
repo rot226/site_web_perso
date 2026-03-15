@@ -14,7 +14,7 @@
   - Introduction Projects : orientation simulation LPWAN + référence profil GitHub.
   - Introduction Contact : invitation à contacter via LinkedIn + suivi sur GitHub.
 - **Liens externes principaux** :
-  - LinkedIn : `https://www.linkedin.com/in/fran%C3%A7ois-d-assise-sanou-a57066200/`
+  - LinkedIn : `https://www.linkedin.com/in/francois-d-assise-sanou-a57066200/`
   - GitHub : `https://github.com/sanoufrancois226-crypto`
   - LoRaFlexSim : `https://loraflexsim.netlify.app/`
   - IEEE (publications):
@@ -87,7 +87,7 @@ Objectif anti-perte : **aucune suppression de bloc**, uniquement consolidation/�
 ## 4) Vérification des URLs externes à conserver
 
 URLs demandées détectées et marquées à conserver :
-- LinkedIn : `https://www.linkedin.com/in/fran%C3%A7ois-d-assise-sanou-a57066200/`
+- LinkedIn : `https://www.linkedin.com/in/francois-d-assise-sanou-a57066200/`
 - GitHub : `https://github.com/sanoufrancois226-crypto`
 - IEEE (plusieurs documents : 10812147, 11304034, 11323245, 11418870)
 - Site LoRaFlexSim : `https://loraflexsim.netlify.app/`
