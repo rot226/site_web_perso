@@ -1,35 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.querySelector('#primary-navigation');
     const menuButton = document.querySelector('.c-header__menu-toggle');
-    const menuLabel = menuButton?.querySelector('.c-header__menu-label') ?? null;
-    const navLinks = Array.from(document.querySelectorAll('.c-nav__link'));
-    const sections = Array.from(document.querySelectorAll('main section[id]'));
-    const sectionIds = new Set(sections.map((section) => section.id));
+    const nav = document.querySelector('#primary-navigation');
+    const navLinks = [...document.querySelectorAll('.c-nav__link')];
+    const sections = [...document.querySelectorAll('main section[id]')];
 
-    if (!nav || !menuButton || navLinks.length === 0) return;
+    if (!menuButton || !nav || navLinks.length === 0) return;
 
-    const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
-    const isMobile = () => mobileMediaQuery.matches;
-
-    const normalizeHash = (hash) => {
-        const rawHash = hash || '#about';
-        const id = rawHash.replace(/^#/, '');
-        return sectionIds.has(id) ? `#${id}` : '#about';
+    const setMenuState = (open) => {
+        nav.classList.toggle('c-nav--open', open);
+        menuButton.setAttribute('aria-expanded', String(open));
+        menuButton.setAttribute('aria-label', open ? 'Close main menu' : 'Open main menu');
     };
 
-    const setMenuLabel = (open) => {
-        const label = open ? 'Close main menu' : 'Open main menu';
-        menuButton.setAttribute('aria-label', label);
-        if (menuLabel) {
-            menuLabel.textContent = label;
-        }
-    };
-
-    const updateActiveLink = (activeHash) => {
-        const currentHash = normalizeHash(activeHash ?? window.location.hash);
-
+    const setActiveLink = (id) => {
         navLinks.forEach((link) => {
-            const isActive = normalizeHash(link.getAttribute('href')) === currentHash;
+            const isActive = link.getAttribute('href') === `#${id}`;
             link.classList.toggle('active', isActive);
             if (isActive) {
                 link.setAttribute('aria-current', 'page');
@@ -39,125 +24,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    const closeMenu = ({ restoreFocus = false } = {}) => {
-        nav.classList.remove('c-nav--open');
-        menuButton.setAttribute('aria-expanded', 'false');
-        setMenuLabel(false);
+    const currentHash = window.location.hash.replace('#', '');
+    if (currentHash) {
+        setActiveLink(currentHash);
+    }
 
-        if (restoreFocus) {
-            menuButton.focus();
-        }
-    };
-
-    const openMenu = () => {
-        if (!isMobile()) return;
-
-        nav.classList.add('c-nav--open');
-        menuButton.setAttribute('aria-expanded', 'true');
-        setMenuLabel(true);
-    };
-
-    const toggleMenu = () => {
-        if (nav.classList.contains('c-nav--open')) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    };
-
-    const ensureValidHash = () => {
-        const nextHash = normalizeHash(window.location.hash);
-        if (window.location.hash !== nextHash) {
-            window.history.replaceState(null, '', nextHash);
-        }
-
-        return nextHash;
-    };
-
-    const updateActiveLinkFromViewport = () => {
-        if (sections.length === 0) return;
-
-        const viewportMidline = window.innerHeight * 0.35;
-        let bestSection = sections[0];
-        let smallestDistance = Number.POSITIVE_INFINITY;
-
-        for (const section of sections) {
-            const rect = section.getBoundingClientRect();
-            const sectionTop = rect.top;
-            const sectionBottom = rect.bottom;
-            const inRange = sectionTop <= viewportMidline && sectionBottom >= viewportMidline;
-
-            if (inRange) {
-                bestSection = section;
-                break;
-            }
-
-            const distance = Math.min(Math.abs(sectionTop - viewportMidline), Math.abs(sectionBottom - viewportMidline));
-            if (distance < smallestDistance) {
-                smallestDistance = distance;
-                bestSection = section;
-            }
-        }
-
-        const hash = `#${bestSection.id}`;
-        updateActiveLink(hash);
-    };
-
-    const onNavLinkActivate = (link) => {
-        const nextHash = normalizeHash(link.getAttribute('href'));
-        updateActiveLink(nextHash);
-
-        if (window.location.hash !== nextHash) {
-            window.history.pushState(null, '', nextHash);
-        }
-
-        if (isMobile()) {
-            closeMenu();
-        }
-    };
-
-    ensureValidHash();
-    updateActiveLink(window.location.hash);
-    setMenuLabel(false);
-
-    menuButton.addEventListener('click', toggleMenu);
-
-    navLinks.forEach((link) => {
-        link.addEventListener('click', () => onNavLinkActivate(link));
-
-        link.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                onNavLinkActivate(link);
-                const target = document.querySelector(normalizeHash(link.getAttribute('href')));
-                target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && nav.classList.contains('c-nav--open')) {
-            closeMenu({ restoreFocus: true });
-        }
+    menuButton.addEventListener('click', () => {
+        const isOpen = nav.classList.contains('c-nav--open');
+        setMenuState(!isOpen);
     });
 
     document.addEventListener('click', (event) => {
-        if (!isMobile()) return;
+        if (!nav.classList.contains('c-nav--open')) return;
         if (!nav.contains(event.target) && !menuButton.contains(event.target)) {
-            closeMenu();
+            setMenuState(false);
         }
     });
+
+    navLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            const id = link.getAttribute('href').replace('#', '');
+            setActiveLink(id);
+            setMenuState(false);
+        });
+    });
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            const visible = entries
+                .filter((entry) => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+            if (visible?.target?.id) {
+                setActiveLink(visible.target.id);
+            }
+        },
+        {
+            threshold: [0.35, 0.6],
+            rootMargin: '-20% 0px -45% 0px'
+        }
+    );
+
+    sections.forEach((section) => observer.observe(section));
 
     window.addEventListener('hashchange', () => {
-        const nextHash = ensureValidHash();
-        updateActiveLink(nextHash);
+        const id = window.location.hash.replace('#', '');
+        if (id) setActiveLink(id);
     });
 
-    window.addEventListener('scroll', updateActiveLinkFromViewport, { passive: true });
-
-    mobileMediaQuery.addEventListener('change', (event) => {
-        if (!event.matches) {
-            closeMenu();
+    window.matchMedia('(min-width: 769px)').addEventListener('change', (event) => {
+        if (event.matches) {
+            setMenuState(false);
         }
     });
+
+    setMenuState(false);
 });
