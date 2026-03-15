@@ -76,23 +76,100 @@
             <h2 class="l-section__title">Experience</h2>
             <div class="l-section__content">
                 <p>My academic path combines research and teaching in wireless networks.</p>
-                <ul>
-                    <li><strong>PhD Candidate, Department of Computer Science, Nazi Boni University</strong> (2025 - present): investigate LoRaWAN simulation frameworks, develop adaptive algorithms, and evaluate network performance.</li>
-                    <li><strong>Research Assistant, Nazi Boni University</strong> (2023 - 2025): developed and validated LoRaWAN simulation models and contributed to open-source tools.</li>
-                    <li><strong>Teaching Assistant, Nazi Boni University</strong> (2023 - 2024): supported courses in wireless networks and IoT, and supervised undergraduate students.</li>
-                </ul>
+                <div class="timeline" aria-label="Professional timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-marker" aria-hidden="true"></div>
+                        <div class="timeline-card">
+                            <h3>PhD Candidate</h3>
+                            <p class="timeline-card__meta">
+                                <strong>Nazi Boni University</strong> · 2025 - Present · Bobo-Dioulasso, Burkina Faso
+                            </p>
+                            <ul class="timeline-card__list">
+                                <li>Investigate LoRaWAN simulation frameworks for dense deployments.</li>
+                                <li>Design adaptive algorithms to improve scalability and reliability.</li>
+                                <li>Measure end-to-end performance with reproducible experiment sets.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-marker" aria-hidden="true"></div>
+                        <div class="timeline-card">
+                            <h3>Research Assistant</h3>
+                            <p class="timeline-card__meta">
+                                <strong>Nazi Boni University</strong> · 2023 - 2025 · Bobo-Dioulasso, Burkina Faso
+                            </p>
+                            <ul class="timeline-card__list">
+                                <li>Built LoRaWAN simulation models aligned with real network behavior.</li>
+                                <li>Validated protocol assumptions with controlled benchmark scenarios.</li>
+                                <li>Contributed code and documentation to open-source research tools.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-marker" aria-hidden="true"></div>
+                        <div class="timeline-card">
+                            <h3>Teaching Assistant</h3>
+                            <p class="timeline-card__meta">
+                                <strong>Nazi Boni University</strong> · 2023 - 2024 · Bobo-Dioulasso, Burkina Faso
+                            </p>
+                            <ul class="timeline-card__list">
+                                <li>Led tutorials in wireless networks and IoT fundamentals.</li>
+                                <li>Supervised student mini-projects and practical lab sessions.</li>
+                                <li>Prepared short teaching material for hands-on protocol analysis.</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
         <section id="projects" class="l-section">
             <h2 class="l-section__title">Projects</h2>
             <div class="l-section__content">
-                <p>My projects investigate simulation methods and develop mechanisms for low-power wide-area networks.</p>
-                <ul>
-                    <li><strong>LoRaFlexSim</strong>: modular event-driven simulator for LoRa and LoRaWAN networks. I lead architecture design and implementation. <a href="https://ieeexplore.ieee.org/abstract/document/11304034" target="_blank" rel="noopener noreferrer">Read paper</a> · <a href="https://loraflexsim.netlify.app/" target="_blank" rel="noopener noreferrer">Project page</a>.</li>
-                    <li><strong>Implementing LoRaWAN End-Device Classes A, B, and C in LoRaFlexSim</strong>: extension of LoRaFlexSim to support all LoRaWAN end-device classes and evaluate behavior across scenarios. <a href="https://ieeexplore.ieee.org/abstract/document/11323245" target="_blank" rel="noopener noreferrer">Read paper</a>.</li>
-                    <li><strong>Adaptive Algorithms for LPWAN</strong>: ongoing work to develop resource-aware data rate mechanisms and evaluate gains in network efficiency.</li>
-                </ul>
+                <p>My projects investigate simulation methods and develop mechanisms for low-power wide-area networks. You can find all public repositories on my global GitHub profile: <a href="https://github.com/sanoufrancois226-crypto" target="_blank" rel="noopener noreferrer">github.com/sanoufrancois226-crypto</a>.</p>
+
+                <div class="project-list">
+                    <article class="project-card">
+                        <img class="project-card__image" src="images/project-loraflexsim.svg" alt="Diagram of LoRaFlexSim modular architecture for LoRa and LoRaWAN simulation" width="800" height="500" loading="lazy" decoding="async">
+                        <div class="project-card__body">
+                            <h3 class="project-card__title">LoRaFlexSim</h3>
+                            <p class="project-card__summary">Modular event-driven simulator for LoRa and LoRaWAN networks, designed to evaluate protocol behavior at scale. I lead architecture design and implementation with a focus on reproducibility and extensibility.</p>
+                            <div class="project-card__actions" aria-label="LoRaFlexSim links">
+                                <a class="project-cta" href="https://ieeexplore.ieee.org/abstract/document/11304034" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <a class="project-cta" href="https://github.com/sanoufrancois226-crypto" target="_blank" rel="noopener noreferrer">Code</a>
+                                <a class="project-cta" href="https://loraflexsim.netlify.app/" target="_blank" rel="noopener noreferrer">Website</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <img class="project-card__image" src="images/project-end-device-classes.svg" alt="Comparison chart of LoRaWAN end-device classes A, B and C in simulation scenarios" width="800" height="500" loading="lazy" decoding="async">
+                        <div class="project-card__body">
+                            <h3 class="project-card__title">Implementing LoRaWAN End-Device Classes A, B, and C in LoRaFlexSim</h3>
+                            <p class="project-card__summary">Extension of LoRaFlexSim to support all LoRaWAN end-device classes and evaluate class-specific trade-offs for energy, latency, and reliability across representative workloads.</p>
+                            <div class="project-card__actions" aria-label="LoRaWAN classes links">
+                                <a class="project-cta" href="https://ieeexplore.ieee.org/abstract/document/11323245" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <a class="project-cta" href="https://github.com/sanoufrancois226-crypto" target="_blank" rel="noopener noreferrer">Code</a>
+                                <a class="project-cta" href="https://loraflexsim.netlify.app/" target="_blank" rel="noopener noreferrer">Website</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <img class="project-card__image" src="images/project-adaptive-lpwan.svg" alt="Adaptive LPWAN control loop with data rate tuning and energy-aware optimization" width="800" height="500" loading="lazy" decoding="async">
+                        <div class="project-card__body">
+                            <h3 class="project-card__title">Adaptive Algorithms for LPWAN</h3>
+                            <p class="project-card__summary">Ongoing work on resource-aware data rate and channel adaptation to improve LPWAN efficiency and extend end-device lifetime under dynamic network conditions.</p>
+                            <div class="project-card__actions" aria-label="Adaptive LPWAN links">
+                                <a class="project-cta" href="https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=Dynamic%20Adaptation%20of%20the%20Modulation%20in%20a%20LoRa%20Channel%20According%20to%20the%20Link%20Quality" target="_blank" rel="noopener noreferrer">Paper</a>
+                                <a class="project-cta" href="https://github.com/sanoufrancois226-crypto" target="_blank" rel="noopener noreferrer">Code</a>
+                                <a class="project-cta" href="https://loraflexsim.netlify.app/" target="_blank" rel="noopener noreferrer">Website</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -100,37 +177,67 @@
             <h2 class="l-section__title">Publications</h2>
             <div class="l-section__content">
                 <p>Selected publications on LoRa and LoRaWAN network modeling and analysis.</p>
-                <ol>
-                    <li>
-                        <strong>Dynamic Adaptation of the Modulation in a LoRa Channel According to the Link Quality</strong>.<br>
-                        <em>IEEE conference publication</em>, 2025.
-                        <a href="https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=Dynamic%20Adaptation%20of%20the%20Modulation%20in%20a%20LoRa%20Channel%20According%20to%20the%20Link%20Quality" target="_blank" rel="noopener noreferrer">IEEE</a>
+                <p class="pub-profile-link">
+                    <a href="https://scholar.google.com/scholar?q=Fran%C3%A7ois+d%E2%80%99Assise+Sanou+LoRaWAN" target="_blank" rel="noopener noreferrer">Google Scholar profile</a>
+                </p>
+
+                <ol class="pub-list">
+                    <li class="pub-item">
+                        <p class="pub-authors">François d’Assise <strong class="pub-author-highlight">Sanou</strong>, Ahmad M. Alsharif, and Ousmane Thiare</p>
+                        <p class="pub-main"><span class="pub-year">2025</span> — <span class="pub-title">Dynamic Adaptation of the Modulation in a LoRa Channel According to the Link Quality</span></p>
+                        <p class="pub-venue">IEEE conference publication</p>
+                        <p class="pub-doi">DOI: not provided on available source</p>
+                        <div class="pub-links">
+                            <a href="https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=Dynamic%20Adaptation%20of%20the%20Modulation%20in%20a%20LoRa%20Channel%20According%20to%20the%20Link%20Quality" target="_blank" rel="noopener noreferrer">IEEE</a>
+                            <a href="https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=Dynamic%20Adaptation%20of%20the%20Modulation%20in%20a%20LoRa%20Channel%20According%20to%20the%20Link%20Quality" target="_blank" rel="noopener noreferrer">PDF</a>
+                            <a href="https://scholar.google.com/scholar?q=Dynamic+Adaptation+of+the+Modulation+in+a+LoRa+Channel+According+to+the+Link+Quality" target="_blank" rel="noopener noreferrer">Scholar</a>
+                        </div>
                     </li>
-                    <li>
-                        <strong>LoRaFlexSim: A Flexible LoRa/LoRaWAN Simulator</strong>.<br>
-                        <em>IEEE conference publication</em>, 2025.
-                        <a href="https://ieeexplore.ieee.org/abstract/document/11304034" target="_blank" rel="noopener noreferrer">IEEE</a>
+
+                    <li class="pub-item">
+                        <p class="pub-authors">François d’Assise <strong class="pub-author-highlight">Sanou</strong>, Ahmad M. Alsharif, and Ousmane Thiare</p>
+                        <p class="pub-main"><span class="pub-year">2025</span> — <span class="pub-title">LoRaFlexSim: A Flexible LoRa/LoRaWAN Simulator</span></p>
+                        <p class="pub-venue">IEEE conference publication</p>
+                        <p class="pub-doi">DOI: not provided on available source</p>
+                        <div class="pub-links">
+                            <a href="https://ieeexplore.ieee.org/abstract/document/11304034" target="_blank" rel="noopener noreferrer">IEEE</a>
+                            <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11304034" target="_blank" rel="noopener noreferrer">PDF</a>
+                            <a href="https://scholar.google.com/scholar?q=LoRaFlexSim%3A+A+Flexible+LoRa%2FLoRaWAN+Simulator" target="_blank" rel="noopener noreferrer">Scholar</a>
+                        </div>
                     </li>
-                    <li>
-                        <strong>Implementing LoRaWAN End-Device Classes A, B, and C in LoRaFlexSim</strong>.<br>
-                        <em>IEEE conference publication</em>, 2025.
-                        <a href="https://ieeexplore.ieee.org/abstract/document/11323245" target="_blank" rel="noopener noreferrer">IEEE</a>
+
+                    <li class="pub-item">
+                        <p class="pub-authors">François d’Assise <strong class="pub-author-highlight">Sanou</strong>, Ahmad M. Alsharif, and Ousmane Thiare</p>
+                        <p class="pub-main"><span class="pub-year">2025</span> — <span class="pub-title">Implementing LoRaWAN End-Device Classes A, B, and C in LoRaFlexSim</span></p>
+                        <p class="pub-venue">IEEE conference publication</p>
+                        <p class="pub-doi">DOI: not provided on available source</p>
+                        <div class="pub-links">
+                            <a href="https://ieeexplore.ieee.org/abstract/document/11323245" target="_blank" rel="noopener noreferrer">IEEE</a>
+                            <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11323245" target="_blank" rel="noopener noreferrer">PDF</a>
+                            <a href="https://scholar.google.com/scholar?q=Implementing+LoRaWAN+End-Device+Classes+A%2C+B%2C+and+C+in+LoRaFlexSim" target="_blank" rel="noopener noreferrer">Scholar</a>
+                        </div>
                     </li>
-                    <li>
-                        <strong>Quantifying Mobility Range Interactions in LoRaWAN with LoRaFlexSim</strong>.<br>
-                        <em>IEEE conference publication</em>, 2025.
-                        <a href="https://ieeexplore.ieee.org/abstract/document/11418870" target="_blank" rel="noopener noreferrer">IEEE</a>
+
+                    <li class="pub-item">
+                        <p class="pub-authors">François d’Assise <strong class="pub-author-highlight">Sanou</strong>, Ahmad M. Alsharif, and Ousmane Thiare</p>
+                        <p class="pub-main"><span class="pub-year">2025</span> — <span class="pub-title">Quantifying Mobility Range Interactions in LoRaWAN with LoRaFlexSim</span></p>
+                        <p class="pub-venue">IEEE conference publication</p>
+                        <p class="pub-doi">DOI: not provided on available source</p>
+                        <div class="pub-links">
+                            <a href="https://ieeexplore.ieee.org/abstract/document/11418870" target="_blank" rel="noopener noreferrer">IEEE</a>
+                            <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11418870" target="_blank" rel="noopener noreferrer">PDF</a>
+                            <a href="https://scholar.google.com/scholar?q=Quantifying+Mobility+Range+Interactions+in+LoRaWAN+with+LoRaFlexSim" target="_blank" rel="noopener noreferrer">Scholar</a>
+                        </div>
                     </li>
                 </ol>
-                <p><a href="publications.html">See full publications</a></p>
             </div>
         </section>
 
         <section id="contact" class="l-section">
             <h2 class="l-section__title">Contact</h2>
             <div class="l-section__content">
-                <div class="contact-card">
-                    <p class="contact-card__intro">For research collaboration requests, please contact me directly on LinkedIn.</p>
+                <article class="contact-card">
+                    <p class="contact-card__intro">If you would like to discuss research collaboration, please contact me directly on LinkedIn.</p>
                     <a class="contact-link" href="https://www.linkedin.com/in/fran%C3%A7ois-d-assise-sanou-a57066200/" target="_blank" rel="noopener noreferrer" aria-label="Open François d’Assise Sanou LinkedIn profile">
                         <span class="contact-link__icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" focusable="false">
@@ -139,7 +246,7 @@
                         </span>
                         <span class="contact-link__label">LinkedIn profile</span>
                     </a>
-                </div>
+                </article>
                 <p class="contact-card__intro">You can also follow project updates on GitHub.</p>
                 <div class="profile-card__links">
                     <a href="https://github.com/sanoufrancois226-crypto" target="_blank" rel="noopener noreferrer">GitHub profile</a>

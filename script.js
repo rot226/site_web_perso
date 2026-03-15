@@ -5,11 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
 
-    const normalizePath = (path) => {
-        if (!path || path === '/') return '/index.html';
-        return path.endsWith('/') ? `${path}index.html` : path;
-    };
-
     const setMenuOpen = (open) => {
         if (!nav || !menuButton) return;
         nav.classList.toggle('c-nav--open', open);
@@ -21,32 +16,31 @@ document.addEventListener('DOMContentLoaded', () => {
         menuButton.setAttribute('aria-label', 'Open main menu');
     }
 
+    const ensureDefaultHash = () => {
+        if (!window.location.hash) {
+            window.history.replaceState(null, '', '#about');
+        }
+    };
+
     const updateActiveLink = () => {
-        const currentPath = normalizePath(window.location.pathname);
-        const currentHash = window.location.hash;
+        const currentHash = window.location.hash || '#about';
 
         navLinks.forEach((link) => {
-            const url = new URL(link.getAttribute('href'), window.location.href);
-            const linkPath = normalizePath(url.pathname);
-            const linkHash = url.hash;
-
-            const hashMatch = linkHash && linkPath === currentPath && linkHash === currentHash;
-            const indexDefault = !currentHash && currentPath === '/index.html' && linkPath === '/index.html' && linkHash === '#about';
-            const pageMatch = !linkHash && linkPath === currentPath;
-            const isActive = hashMatch || indexDefault || pageMatch;
+            const linkHash = link.getAttribute('href');
+            const isActive = linkHash === currentHash;
 
             link.classList.toggle('active', isActive);
             if (isActive) {
-                link.setAttribute('aria-current', linkHash ? 'location' : 'page');
+                link.setAttribute('aria-current', 'location');
             } else {
                 link.removeAttribute('aria-current');
             }
         });
     };
 
+    ensureDefaultHash();
     updateActiveLink();
     window.addEventListener('hashchange', updateActiveLink);
-    window.addEventListener('popstate', updateActiveLink);
 
     if (!nav || !menuButton) return;
 
