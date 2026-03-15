@@ -630,10 +630,21 @@ a:hover {
     color: #f3f9ff;
 }
 
+.timeline-card__role {
+    margin-bottom: var(--space-xs);
+    color: #f3f9ff;
+}
+
 .timeline-card__meta {
-    margin-bottom: var(--space-sm);
+    margin: 0;
     color: #d4e4f3;
     font-size: var(--fs-sm);
+}
+
+.timeline-card__description {
+    margin: var(--space-sm) 0 var(--space-sm);
+    max-width: 58ch;
+    color: #eaf3fb;
 }
 
 .timeline-card__list {
@@ -648,6 +659,22 @@ a:hover {
 
 .timeline-card__list li:last-child {
     margin-bottom: 0;
+}
+
+@media (max-width: 48rem) {
+    .timeline {
+        padding-left: 0;
+        gap: var(--space-md);
+    }
+
+    .timeline::before,
+    .timeline-marker {
+        display: none;
+    }
+
+    .timeline-card {
+        max-width: 100%;
+    }
 }
 
 /* 4.4 Contact */
