@@ -707,6 +707,19 @@ a:hover {
         max-width: 100%;
     }
 
+    .pub-item {
+        padding: var(--space-sm);
+    }
+
+    .pub-links {
+        gap: 0.45rem;
+    }
+
+    .c-secondary-link {
+        min-height: 2.15rem;
+        padding-inline: 0.78rem;
+    }
+
     .timeline {
         padding-left: 1.7rem;
         gap: var(--space-md);
@@ -745,12 +758,25 @@ a:hover {
 
 
 @media (max-width: 64rem) {
+    .l-section {
+        grid-template-columns: minmax(0, 8.2rem) minmax(0, 1fr);
+        column-gap: var(--space-lg);
+    }
+
+    .l-section__content {
+        max-width: 100%;
+    }
+
     .timeline-card {
         max-width: 100%;
     }
 
     .contact-card {
         gap: var(--space-md);
+    }
+
+    .pub-links {
+        row-gap: var(--space-xs);
     }
 }
 
@@ -787,6 +813,21 @@ a:hover {
 
     .contact-link {
         padding: 0.64rem 0.86rem;
+    }
+
+    .pub-links {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .c-secondary-link {
+        min-width: 0;
+        width: 100%;
+        min-height: 2.25rem;
+    }
+
+    .pub-links .c-secondary-link:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
     }
 }
 
