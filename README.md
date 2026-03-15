@@ -33,6 +33,13 @@ Le site repose sur **une seule page de contenu : `index.html`**.
 
 La navigation principale utilise uniquement des ancres internes (`href="#..."`).
 
+## Statut de simplification (pages legacy)
+
+Le site est volontairement maintenu en **single-page** via `index.html`.
+
+- Les sections fonctionnelles sont intégrées à la même page : About, Experience, Projects, Publications, Contact.
+- Les anciennes pages (`experience.html`, `projects.html`, `publications.html`, `contact.html`) sont conservées uniquement comme **redirections** instantanées vers les ancres `index.html#...` pour préserver les anciens liens.
+
 ## Comment éditer rapidement le contenu
 
 ### 1) Publications
