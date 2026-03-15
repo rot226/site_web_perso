@@ -14,7 +14,7 @@
 </head>
 <body>
     <header class="c-header">
-        <div class="c-header__name">François d’Assise Sanou</div>
+        <h1 class="c-header__name">François d’Assise Sanou</h1>
         <button class="c-header__menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open main menu" aria-haspopup="true">☰</button>
         <nav id="primary-navigation" class="c-nav" aria-label="Primary navigation">
             <ul class="c-nav__list">
@@ -27,28 +27,28 @@
         </nav>
     </header>
 
-    <main class="l-page-main">
-        <section id="about" class="l-section l-section--about">
-            <h2 class="l-section__title">About</h2>
+    <main class="l-page-main" aria-label="Main content">
+        <section id="about" class="l-section l-section--about" aria-labelledby="about-title">
+            <h2 id="about-title" class="l-section__title">About</h2>
             <div class="l-section__content">
                 <div class="about-layout">
                     <article class="profile-card" aria-label="Profile">
                         <img class="profile-card__image" src="images/identite_sanou.jpg" alt="Portrait photo of François d’Assise Sanou" width="1072" height="1280" loading="eager" fetchpriority="high" decoding="async">
-                        <h1 class="profile-card__name">François d’Assise Sanou</h1>
+                        <h3 class="profile-card__name">François d’Assise Sanou</h3>
                         <p class="profile-card__role">Wireless Networks Researcher · PhD Candidate</p>
                         <p class="profile-card__affiliation">Department of Computer Science, Nazi Boni University, Burkina Faso</p>
                         <div class="profile-card__links">
                             <a href="https://www.linkedin.com/in/fran%C3%A7ois-d-assise-sanou-a57066200/" target="_blank" rel="noopener noreferrer" aria-label="Open François d’Assise Sanou LinkedIn profile (françois-d-assise-sanou-a57066200)">LinkedIn</a>
-                            <a href="https://github.com/sanoufrancois226-crypto" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            <a href="https://github.com/sanoufrancois226-crypto" target="_blank" rel="noopener noreferrer" aria-label="Open François d’Assise Sanou GitHub profile">GitHub</a>
                         </div>
                     </article>
 
-                    <div class="research-summary" aria-label="Research Summary">
+                    <article class="research-summary" aria-label="Research Summary">
                         <h3>Research Summary</h3>
                         <p>I design and evaluate LoRa/LoRaWAN communication strategies for dense and heterogeneous IoT deployments. My work combines reproducible simulation campaigns and analytical modeling to characterize packet delivery ratio, energy use, and end-to-end latency under realistic traffic and propagation constraints.</p>
-                        <p>Through <a href="https://loraflexsim.netlify.app/" target="_blank" rel="noopener noreferrer">LoRaFlexSim</a>, I build modular simulation workflows that support scenario scaling, algorithm benchmarking, and protocol-level experimentation. The framework enables controlled comparisons of ADR policies, gateway placement strategies, and MAC-layer configurations with traceable performance indicators.</p>
+                        <p>Through <a href="https://loraflexsim.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Open LoRaFlexSim project website">LoRaFlexSim</a>, I build modular simulation workflows that support scenario scaling, algorithm benchmarking, and protocol-level experimentation. The framework enables controlled comparisons of ADR policies, gateway placement strategies, and MAC-layer configurations with traceable performance indicators.</p>
                         <p>I focus on measurable contributions: reducing collision rates, improving fairness across spreading factors, and increasing network capacity while preserving battery lifetime. This orientation guides both my current doctoral research and collaborative open-source development for LPWAN researchers and practitioners.</p>
-                    </div>
+                    </article>
                 </div>
 
                 <div class="about-subsections">
@@ -73,10 +73,13 @@
             </div>
         </section>
 
-        <section id="experience" class="l-section">
-            <h2 class="l-section__title">Experience</h2>
+        <section id="experience" class="l-section" aria-labelledby="experience-title">
+            <h2 id="experience-title" class="l-section__title">Experience</h2>
             <div class="l-section__content">
-                <p>My academic path combines research and teaching in wireless networks.</p>
+                <article aria-label="Experience overview">
+                    <h3>Overview</h3>
+                    <p>My academic path combines research and teaching in wireless networks.</p>
+                </article>
                 <div class="timeline" aria-label="Professional timeline">
                     <article class="timeline-item">
                         <div class="timeline-marker" aria-hidden="true"></div>
@@ -126,77 +129,84 @@
             </div>
         </section>
 
-        <section id="projects" class="l-section">
-            <h2 class="l-section__title">Projects</h2>
+        <section id="projects" class="l-section" aria-labelledby="projects-title">
+            <h2 id="projects-title" class="l-section__title">Projects</h2>
             <div class="l-section__content">
-                <p>My projects investigate simulation methods and develop mechanisms for low-power wide-area networks. You can find all public repositories on my global GitHub profile: <a href="https://github.com/sanoufrancois226-crypto" target="_blank" rel="noopener noreferrer">github.com/sanoufrancois226-crypto</a>.</p>
+                <article aria-label="Selected projects">
+                    <h3>Selected Work</h3>
+                    <p>My projects investigate simulation methods and develop mechanisms for low-power wide-area networks. You can find all public repositories on my global GitHub profile: <a href="https://github.com/sanoufrancois226-crypto" target="_blank" rel="noopener noreferrer" aria-label="Open François d’Assise Sanou GitHub repositories">github.com/sanoufrancois226-crypto</a>.</p>
 
-                <ol class="project-list">
-                    <li class="project-item">
-                        <p><strong>LoRaFlexSim.</strong> Modular event-driven LoRa/LoRaWAN simulator for reproducible large-scale evaluations. <a href="https://loraflexsim.netlify.app/" target="_blank" rel="noopener noreferrer">Project page</a></p>
-                    </li>
-                    <li class="project-item">
-                        <p><strong>Implementing LoRaWAN End-Device Classes A, B, and C in LoRaFlexSim.</strong> Extension study on class-specific trade-offs for energy, latency, and reliability. <a href="https://ieeexplore.ieee.org/abstract/document/11323245" target="_blank" rel="noopener noreferrer">Read paper</a></p>
-                    </li>
-                    <li class="project-item">
-                        <p><strong>Dynamic Adaptation of the Modulation in a LoRa Channel According to the Link Quality.</strong> Adaptive LPWAN control strategy to improve efficiency under varying channel conditions. <a href="https://ieeexplore.ieee.org/abstract/document/10812147" target="_blank" rel="noopener noreferrer">Read paper</a></p>
-                    </li>
-                </ol>
+                    <ol class="project-list">
+                        <li class="project-item">
+                            <p><strong>LoRaFlexSim.</strong> Modular event-driven LoRa/LoRaWAN simulator for reproducible large-scale evaluations. <a href="https://loraflexsim.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Open LoRaFlexSim project page">Project page</a></p>
+                        </li>
+                        <li class="project-item">
+                            <p><strong>Implementing LoRaWAN End-Device Classes A, B, and C in LoRaFlexSim.</strong> Extension study on class-specific trade-offs for energy, latency, and reliability. <a href="https://ieeexplore.ieee.org/abstract/document/11323245" target="_blank" rel="noopener noreferrer" aria-label="Open paper about LoRaWAN End-Device Classes A, B, and C in LoRaFlexSim">Read paper</a></p>
+                        </li>
+                        <li class="project-item">
+                            <p><strong>Dynamic Adaptation of the Modulation in a LoRa Channel According to the Link Quality.</strong> Adaptive LPWAN control strategy to improve efficiency under varying channel conditions. <a href="https://ieeexplore.ieee.org/abstract/document/10812147" target="_blank" rel="noopener noreferrer" aria-label="Open paper about dynamic adaptation of LoRa modulation">Read paper</a></p>
+                        </li>
+                    </ol>
+                </article>
             </div>
         </section>
 
-        <section id="publications" class="l-section">
-            <h2 class="l-section__title">Publications</h2>
+        <section id="publications" class="l-section" aria-labelledby="publications-title">
+            <h2 id="publications-title" class="l-section__title">Publications</h2>
             <div class="l-section__content">
-                <ol class="pub-list">
-                    <li class="pub-item">
-                        <p class="pub-main">Francois d'Assise Sanou, Hamadoun Tall, Tiguiane Yelemou <span class="pub-year">(2025)</span>, <span class="pub-title">Dynamic Adaptation of the Modulation in a LoRa Channel According to the Link Quality</span>. <span class="pub-venue">In IEEE Conference (pages à compléter).</span></p>
-                        <p class="pub-doi">DOI : à compléter.</p>
-                        <div class="pub-links c-secondary-links" aria-label="Publication 1 links">
-                            <a class="c-secondary-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10812147" target="_blank" rel="noopener noreferrer">PDF</a>
-                            <a class="c-secondary-link" href="https://ieeexplore.ieee.org/document/10812147/citations?download=true" target="_blank" rel="noopener noreferrer">Cite</a>
-                            <a class="c-secondary-link" href="https://ieeexplore.ieee.org/abstract/document/10812147" target="_blank" rel="noopener noreferrer">DOI</a>
-                        </div>
-                    </li>
-                    <li class="pub-item">
-                        <p class="pub-main">François d’Assise Sanou, Hamadoun Tall, Gérard Chalhoub, Tiguiane Yelemou <span class="pub-year">(2025)</span>, <span class="pub-title">LoRaFlexSim: A Flexible LoRa/LoRaWAN Simulator</span>. <span class="pub-venue">In IEEE Conference (pages à compléter).</span></p>
-                        <p class="pub-doi">DOI : à compléter.</p>
-                        <div class="pub-links c-secondary-links" aria-label="Publication 2 links">
-                            <a class="c-secondary-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11304034" target="_blank" rel="noopener noreferrer">PDF</a>
-                            <a class="c-secondary-link" href="https://ieeexplore.ieee.org/document/11304034/citations?download=true" target="_blank" rel="noopener noreferrer">Cite</a>
-                            <a class="c-secondary-link" href="https://ieeexplore.ieee.org/abstract/document/11304034" target="_blank" rel="noopener noreferrer">DOI</a>
-                        </div>
-                    </li>
-                    <li class="pub-item">
-                        <p class="pub-main">Hamadoun Tall, François d’Assise Sanou, Gérard Chalhoub, Tiguiane Yelemou <span class="pub-year">(2025)</span>, <span class="pub-title">Implementing LoRaWAN End-Device Classes A, B, and C in LoRaFlexSim</span>. <span class="pub-venue">In IEEE Conference (pages à compléter).</span></p>
-                        <p class="pub-doi">DOI : à compléter.</p>
-                        <div class="pub-links c-secondary-links" aria-label="Publication 3 links">
-                            <a class="c-secondary-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11323245" target="_blank" rel="noopener noreferrer">PDF</a>
-                            <a class="c-secondary-link" href="https://ieeexplore.ieee.org/document/11323245/citations?download=true" target="_blank" rel="noopener noreferrer">Cite</a>
-                            <a class="c-secondary-link" href="https://ieeexplore.ieee.org/abstract/document/11323245" target="_blank" rel="noopener noreferrer">DOI</a>
-                        </div>
-                    </li>
-                    <li class="pub-item">
-                        <p class="pub-main">Hamadoun Tall, François d'Assise Sanou, Tiguiane Yélémou <span class="pub-year">(2026)</span>, <span class="pub-title">Quantifying Mobility Range Interactions in LoRaWAN with LoRaFlexSim</span>. <span class="pub-venue">In IEEE Conference (pages à compléter).</span></p>
-                        <p class="pub-doi">DOI : à compléter.</p>
-                        <div class="pub-links c-secondary-links" aria-label="Publication 4 links">
-                            <a class="c-secondary-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11418870" target="_blank" rel="noopener noreferrer">PDF</a>
-                            <a class="c-secondary-link" href="https://ieeexplore.ieee.org/document/11418870/citations?download=true" target="_blank" rel="noopener noreferrer">Cite</a>
-                            <a class="c-secondary-link" href="https://ieeexplore.ieee.org/abstract/document/11418870" target="_blank" rel="noopener noreferrer">DOI</a>
-                        </div>
-                    </li>
-                </ol>
+                <article aria-label="Conference publications">
+                    <h3>Conference Papers</h3>
+                    <ol class="pub-list">
+                        <li class="pub-item">
+                            <p class="pub-main">Francois d'Assise Sanou, Hamadoun Tall, Tiguiane Yelemou <span class="pub-year">(2025)</span>, <span class="pub-title">Dynamic Adaptation of the Modulation in a LoRa Channel According to the Link Quality</span>. <span class="pub-venue">In IEEE Conference (pages à compléter).</span></p>
+                            <p class="pub-doi">DOI : à compléter.</p>
+                            <div class="pub-links c-secondary-links" aria-label="Publication 1 links">
+                                <a class="c-secondary-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10812147" target="_blank" rel="noopener noreferrer" aria-label="Open publication 1 PDF">PDF</a>
+                                <a class="c-secondary-link" href="https://ieeexplore.ieee.org/document/10812147/citations?download=true" target="_blank" rel="noopener noreferrer" aria-label="Open publication 1 citation export">Cite</a>
+                                <a class="c-secondary-link" href="https://ieeexplore.ieee.org/abstract/document/10812147" target="_blank" rel="noopener noreferrer" aria-label="Open publication 1 DOI page">DOI</a>
+                            </div>
+                        </li>
+                        <li class="pub-item">
+                            <p class="pub-main">François d’Assise Sanou, Hamadoun Tall, Gérard Chalhoub, Tiguiane Yelemou <span class="pub-year">(2025)</span>, <span class="pub-title">LoRaFlexSim: A Flexible LoRa/LoRaWAN Simulator</span>. <span class="pub-venue">In IEEE Conference (pages à compléter).</span></p>
+                            <p class="pub-doi">DOI : à compléter.</p>
+                            <div class="pub-links c-secondary-links" aria-label="Publication 2 links">
+                                <a class="c-secondary-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11304034" target="_blank" rel="noopener noreferrer" aria-label="Open publication 2 PDF">PDF</a>
+                                <a class="c-secondary-link" href="https://ieeexplore.ieee.org/document/11304034/citations?download=true" target="_blank" rel="noopener noreferrer" aria-label="Open publication 2 citation export">Cite</a>
+                                <a class="c-secondary-link" href="https://ieeexplore.ieee.org/abstract/document/11304034" target="_blank" rel="noopener noreferrer" aria-label="Open publication 2 DOI page">DOI</a>
+                            </div>
+                        </li>
+                        <li class="pub-item">
+                            <p class="pub-main">Hamadoun Tall, François d’Assise Sanou, Gérard Chalhoub, Tiguiane Yelemou <span class="pub-year">(2025)</span>, <span class="pub-title">Implementing LoRaWAN End-Device Classes A, B, and C in LoRaFlexSim</span>. <span class="pub-venue">In IEEE Conference (pages à compléter).</span></p>
+                            <p class="pub-doi">DOI : à compléter.</p>
+                            <div class="pub-links c-secondary-links" aria-label="Publication 3 links">
+                                <a class="c-secondary-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11323245" target="_blank" rel="noopener noreferrer" aria-label="Open publication 3 PDF">PDF</a>
+                                <a class="c-secondary-link" href="https://ieeexplore.ieee.org/document/11323245/citations?download=true" target="_blank" rel="noopener noreferrer" aria-label="Open publication 3 citation export">Cite</a>
+                                <a class="c-secondary-link" href="https://ieeexplore.ieee.org/abstract/document/11323245" target="_blank" rel="noopener noreferrer" aria-label="Open publication 3 DOI page">DOI</a>
+                            </div>
+                        </li>
+                        <li class="pub-item">
+                            <p class="pub-main">Hamadoun Tall, François d'Assise Sanou, Tiguiane Yélémou <span class="pub-year">(2026)</span>, <span class="pub-title">Quantifying Mobility Range Interactions in LoRaWAN with LoRaFlexSim</span>. <span class="pub-venue">In IEEE Conference (pages à compléter).</span></p>
+                            <p class="pub-doi">DOI : à compléter.</p>
+                            <div class="pub-links c-secondary-links" aria-label="Publication 4 links">
+                                <a class="c-secondary-link" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11418870" target="_blank" rel="noopener noreferrer" aria-label="Open publication 4 PDF">PDF</a>
+                                <a class="c-secondary-link" href="https://ieeexplore.ieee.org/document/11418870/citations?download=true" target="_blank" rel="noopener noreferrer" aria-label="Open publication 4 citation export">Cite</a>
+                                <a class="c-secondary-link" href="https://ieeexplore.ieee.org/abstract/document/11418870" target="_blank" rel="noopener noreferrer" aria-label="Open publication 4 DOI page">DOI</a>
+                            </div>
+                        </li>
+                    </ol>
+                </article>
             </div>
         </section>
 
-        <section id="contact" class="l-section">
-            <h2 class="l-section__title">Contact</h2>
+        <section id="contact" class="l-section" aria-labelledby="contact-title">
+            <h2 id="contact-title" class="l-section__title">Contact</h2>
             <div class="l-section__content">
                 <article class="contact-card">
+                    <h3>Get in Touch</h3>
                     <p class="contact-card__intro">If you would like to discuss research collaboration, please contact me directly on LinkedIn.</p>
                     <a class="contact-link" href="https://www.linkedin.com/in/fran%C3%A7ois-d-assise-sanou-a57066200/" target="_blank" rel="noopener noreferrer" aria-label="Contact François d’Assise Sanou via LinkedIn (françois-d-assise-sanou-a57066200)">
                         <span class="contact-link__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" focusable="false">
+                            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
                                 <path d="M4.98 3.5C4.98 4.88 3.86 6 2.49 6S0 4.88 0 3.5 1.11 1 2.49 1 4.98 2.12 4.98 3.5ZM.5 8h4V23h-4V8Zm7 0h3.83v2.05h.05c.53-1 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.13V23h-4v-7.75c0-1.85-.03-4.22-2.57-4.22-2.57 0-2.96 2.01-2.96 4.09V23h-4V8Z" />
                             </svg>
                         </span>
@@ -205,7 +215,7 @@
                 </article>
                 <p class="contact-card__intro">You can also follow project updates on GitHub.</p>
                 <div class="profile-card__links">
-                    <a href="https://github.com/sanoufrancois226-crypto" target="_blank" rel="noopener noreferrer">GitHub profile</a>
+                    <a href="https://github.com/sanoufrancois226-crypto" target="_blank" rel="noopener noreferrer" aria-label="Open François d’Assise Sanou GitHub profile">GitHub profile</a>
                 </div>
             </div>
         </section>
