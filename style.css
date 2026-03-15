@@ -33,6 +33,8 @@
     --fs-2xl: clamp(1.9rem, 1.25rem + 2.8vw, 3.25rem);
 
     --container-max: 72rem;
+    --page-gutter: clamp(0.9rem, 0.55rem + 1.2vw, 1.6rem);
+    --section-title-width: clamp(9.5rem, 16vw, 13.25rem);
 }
 
 /* =========================================================
@@ -53,6 +55,7 @@ body {
     color: var(--text);
     line-height: 1.65;
     font-size: var(--fs-md);
+    overflow-x: clip;
 }
 
 h1,
@@ -110,18 +113,33 @@ a:hover {
 /* =========================================================
    3) LAYOUT GLOBAL
    ========================================================= */
-.l-page-main {
-    width: min(100% - 2 * var(--space-lg), var(--container-max));
+.c-header,
+.c-hero,
+.l-page-main,
+.c-footer {
+    width: min(100% - 2 * var(--page-gutter), var(--container-max));
     margin-inline: auto;
+}
+
+.l-page-main {
     padding-block: var(--space-2xl);
 }
 
 .l-section {
     display: grid;
-    grid-template-columns: minmax(9rem, 12.5rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, var(--section-title-width)) minmax(0, 1fr);
     column-gap: var(--space-xl);
     align-items: start;
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+    border: 1px solid color-mix(in srgb, var(--muted), transparent 76%);
+    border-radius: var(--radius-lg);
+    background: color-mix(in srgb, var(--surface), transparent 22%);
+    box-shadow: var(--shadow-sm);
+}
+
+.l-section:last-child {
+    margin-bottom: 0;
 }
 
 .l-section__title {
@@ -131,7 +149,7 @@ a:hover {
 }
 
 .l-section__content {
-    max-width: 72ch;
+    max-width: 74ch;
 }
 
 .l-section__content p,
@@ -166,7 +184,6 @@ a:hover {
     border-bottom: 1px solid color-mix(in srgb, var(--muted), transparent 70%);
     box-shadow: var(--shadow-sm);
 
-    width: min(100% - 2 * var(--space-md), var(--container-max) + 2 * var(--space-md));
     margin: var(--space-md) auto 0;
     padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-lg);
@@ -265,7 +282,6 @@ a:hover {
 
 /* 4.2 Hero */
 .c-hero {
-    width: min(100% - 2 * var(--space-lg), var(--container-max));
     margin: var(--space-lg) auto 0;
     display: flex;
     flex-wrap: wrap;
@@ -458,6 +474,16 @@ a:hover {
     box-shadow: var(--shadow-sm);
 }
 
+.project-card,
+.pub-item,
+.contact-card,
+.timeline-card,
+.about-subsection,
+.research-summary,
+.profile-card {
+    max-width: 100%;
+}
+
 .project-card__image {
     width: 100%;
     height: auto;
@@ -579,7 +605,7 @@ a:hover {
 .contact-card {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: var(--space-lg);
     padding: var(--space-lg);
     border: 1px solid color-mix(in srgb, var(--muted), transparent 65%);
@@ -630,7 +656,6 @@ a:hover {
 
 /* 4.6 Footer */
 .c-footer {
-    width: min(100% - 2 * var(--space-md), var(--container-max));
     margin: 0 auto var(--space-md);
     padding: var(--space-md);
     border-radius: var(--radius-lg);
@@ -683,10 +708,7 @@ a:hover {
 }
 
 @media (max-width: 48rem) {
-    .c-header {
-        width: calc(100% - 2 * var(--space-sm));
-        margin-top: var(--space-sm);
-    }
+    .c-header { margin-top: var(--space-sm); }
 
     .c-hero {
         text-align: center;
@@ -694,14 +716,14 @@ a:hover {
     }
 
     .l-page-main {
-        width: calc(100% - 2 * var(--space-md));
         padding-block: var(--space-xl);
     }
 
     .l-section {
         grid-template-columns: 1fr;
         row-gap: var(--space-xs);
-        margin-bottom: var(--space-xl);
+        padding: var(--space-md);
+        margin-bottom: var(--space-lg);
     }
 
     .about-layout,
@@ -742,6 +764,7 @@ a:hover {
         flex-direction: column;
         align-items: flex-start;
         padding: var(--space-md);
+        gap: var(--space-sm);
     }
 
     .contact-link {
@@ -752,14 +775,6 @@ a:hover {
 
 
 @media (max-width: 64rem) {
-    .l-page-main {
-        width: calc(100% - 2 * var(--space-md));
-    }
-
-    .c-header {
-        width: calc(100% - 2 * var(--space-md));
-    }
-
     .timeline-card {
         max-width: 100%;
     }
@@ -797,7 +812,8 @@ a:hover {
     #experience .l-section__content li,
     #projects .l-section__content li,
     #publications .l-section__content li,
-    .contact-card {
+    .contact-card,
+    .l-section {
         padding: var(--space-sm);
     }
 
