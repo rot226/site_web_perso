@@ -209,10 +209,7 @@ a:hover {
 
 .c-header__menu-toggle:focus-visible,
 .c-nav__link:focus-visible,
-.contact-link:focus-visible,
-.c-form input:focus-visible,
-.c-form textarea:focus-visible,
-.c-form button:focus-visible {
+.contact-link:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
 }
@@ -631,77 +628,6 @@ a:hover {
     white-space: nowrap;
 }
 
-/* 4.5 Formulaire */
-.c-form {
-    display: grid;
-    gap: var(--space-md);
-    margin-top: var(--space-sm);
-    width: min(100%, 44rem);
-}
-
-.c-form__group {
-    display: grid;
-    gap: var(--space-xs);
-}
-
-.c-form label {
-    font-size: var(--fs-sm);
-    font-weight: 600;
-}
-
-.c-form input,
-.c-form textarea,
-.c-form button {
-    width: 100%;
-    border-radius: var(--radius-sm);
-    border: 1px solid color-mix(in srgb, var(--muted), transparent 50%);
-    font: inherit;
-}
-
-.c-form input,
-.c-form textarea {
-    padding: 0.72rem 0.8rem;
-    background-color: color-mix(in srgb, var(--surface), #0d1826 20%);
-    color: var(--text);
-}
-
-.c-form textarea {
-    min-height: 9rem;
-    resize: vertical;
-}
-
-.c-form button {
-    padding: 0.75rem 1rem;
-    background-color: var(--accent);
-    color: #03121e;
-    font-weight: 700;
-    cursor: pointer;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.c-form button:hover:not(:disabled) {
-    opacity: 0.92;
-    transform: translateY(-1px);
-}
-
-.c-form button:disabled,
-.c-form button[aria-disabled="true"] {
-    cursor: not-allowed;
-    background-color: #556b85;
-    color: #ced9e7;
-    border-color: #6f8197;
-    opacity: 0.85;
-}
-
-.c-form__static-info {
-    margin: 0;
-    padding: var(--space-sm);
-    border-left: 4px solid color-mix(in srgb, var(--muted), #fff 15%);
-    background-color: color-mix(in srgb, var(--muted), transparent 82%);
-    font-size: var(--fs-sm);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-}
-
 /* 4.6 Footer */
 .c-footer {
     width: min(100% - 2 * var(--space-md), var(--container-max));
@@ -896,7 +822,6 @@ a:hover {
 
     .project-cta:hover,
     .contact-link:hover,
-    .c-form button:hover:not(:disabled),
     #projects .l-section__content li a:hover,
     #publications .l-section__content li a:hover,
     .pub-links a:hover,

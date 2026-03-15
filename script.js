@@ -3,96 +3,67 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuButton = document.querySelector('.c-header__menu-toggle');
     const navLinks = Array.from(document.querySelectorAll('.c-nav__link'));
 
-    const isMobileView = () => window.matchMedia('(max-width: 768px)').matches;
+    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
 
-    const normalizePathname = (pathname) => {
-        const cleanedPath = pathname.replace(/\/+$|^$/g, '') || '/';
-        if (cleanedPath === '/') {
-            return '/index.html';
-        }
-        return cleanedPath.startsWith('/') ? cleanedPath : `/${cleanedPath}`;
+    const normalizePath = (path) => {
+        if (!path || path === '/') return '/index.html';
+        return path.endsWith('/') ? `${path}index.html` : path;
     };
 
-    const currentPath = () => normalizePathname(window.location.pathname);
-
-    const setMenuState = (open) => {
+    const setMenuOpen = (open) => {
         if (!nav || !menuButton) return;
         nav.classList.toggle('c-nav--open', open);
         menuButton.setAttribute('aria-expanded', String(open));
     };
 
     const updateActiveLink = () => {
-        const activePath = currentPath();
-        const activeHash = window.location.hash;
+        const currentPath = normalizePath(window.location.pathname);
+        const currentHash = window.location.hash;
 
         navLinks.forEach((link) => {
-            link.classList.remove('active');
-            link.removeAttribute('aria-current');
+            const url = new URL(link.getAttribute('href'), window.location.origin);
+            const linkPath = normalizePath(url.pathname);
+            const linkHash = url.hash;
 
-            const href = link.getAttribute('href');
-            if (!href) return;
+            const hashMatch = linkHash && linkPath === currentPath && linkHash === currentHash;
+            const indexDefault = !currentHash && currentPath === '/index.html' && linkPath === '/index.html' && linkHash === '#about';
+            const pageMatch = !linkHash && linkPath === currentPath;
+            const isActive = hashMatch || indexDefault || pageMatch;
 
-            const linkUrl = new URL(href, window.location.origin);
-            const linkPath = normalizePathname(linkUrl.pathname);
-            const linkHash = linkUrl.hash;
-
-            const isSamePath = linkPath === activePath;
-            const isIndexPath = activePath === '/index.html';
-            const isHashLink = Boolean(linkHash);
-
-            const isHashMatch = isSamePath && isHashLink && linkHash === activeHash;
-            const isDefaultIndexSection = isIndexPath && !activeHash && isSamePath && linkHash === '#about';
-            const isPageMatch = isSamePath && !isHashLink && (!isIndexPath || !activeHash);
-
-            if (isHashMatch || isDefaultIndexSection || isPageMatch) {
-                link.classList.add('active');
-                link.setAttribute('aria-current', isHashLink ? 'location' : 'page');
+            link.classList.toggle('active', isActive);
+            if (isActive) {
+                link.setAttribute('aria-current', linkHash ? 'location' : 'page');
+            } else {
+                link.removeAttribute('aria-current');
             }
         });
     };
 
     updateActiveLink();
-
-    navLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-            if (isMobileView()) {
-                setMenuState(false);
-            }
-
-            // Wait for URL/hash to update, then derive the active state from location.
-            requestAnimationFrame(updateActiveLink);
-        });
-    });
-
     window.addEventListener('hashchange', updateActiveLink);
     window.addEventListener('popstate', updateActiveLink);
 
     if (!nav || !menuButton) return;
 
     menuButton.addEventListener('click', () => {
-        const isOpen = nav.classList.contains('c-nav--open');
-        setMenuState(!isOpen);
+        setMenuOpen(!nav.classList.contains('c-nav--open'));
     });
 
-    // Explicit keyboard support (Enter/Espace)
-    menuButton.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            menuButton.click();
-        }
+    navLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            if (isMobile()) setMenuOpen(false);
+            requestAnimationFrame(updateActiveLink);
+        });
     });
 
     document.addEventListener('click', (event) => {
-        if (!isMobileView()) return;
-        const clickedInsideMenu = nav.contains(event.target) || menuButton.contains(event.target);
-        if (!clickedInsideMenu) {
-            setMenuState(false);
+        if (!isMobile()) return;
+        if (!nav.contains(event.target) && !menuButton.contains(event.target)) {
+            setMenuOpen(false);
         }
     });
 
     window.addEventListener('resize', () => {
-        if (!isMobileView()) {
-            setMenuState(false);
-        }
+        if (!isMobile()) setMenuOpen(false);
     });
 });
