@@ -108,6 +108,8 @@ ul, ol { padding-left: 1.2rem; }
 .l-section__content,
 .l-section__content p { max-width: 70ch; }
 .l-section--about .l-section__content { max-width: none; }
+#experience .l-section__content,
+#experience .l-section__content p { max-width: none; }
 
 /* Header + navigation */
 .c-header {
@@ -316,7 +318,7 @@ ul, ol { padding-left: 1.2rem; }
 }
 /* Experience */
 .timeline {
-    --timeline-axis-offset: 50%;
+    --timeline-axis-offset: clamp(3.8rem, 9.2vw, 7.6rem);
     position: relative;
     display: grid;
     gap: var(--space-3);
@@ -335,7 +337,7 @@ ul, ol { padding-left: 1.2rem; }
 
 .timeline-item {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 1.4rem minmax(0, 1fr);
+    grid-template-columns: minmax(2.2rem, clamp(3.2rem, 8.5vw, 7rem)) 1.4rem minmax(0, 1fr);
     gap: var(--space-2);
     align-items: start;
 }
@@ -354,6 +356,7 @@ ul, ol { padding-left: 1.2rem; }
 .timeline-card {
     grid-column: 3;
     min-width: 0;
+    width: min(100%, 74ch);
     overflow-wrap: anywhere;
     word-break: normal;
 }
@@ -362,12 +365,14 @@ ul, ol { padding-left: 1.2rem; }
 .timeline-card__description { color: #dce9f6; }
 
 .timeline-card__list {
-    margin: 0;
-    padding-inline-start: 1.2rem;
+    margin: var(--space-1) 0 0;
+    padding-inline-start: 1.05rem;
 }
 
 .timeline-card__list li {
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.42rem;
+    padding-inline-start: 0.15rem;
+    line-height: 1.45;
     overflow-wrap: anywhere;
 }
 
@@ -484,6 +489,25 @@ ul, ol { padding-left: 1.2rem; }
 
     .about-subsections {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #experience .timeline-card {
+        padding: clamp(1rem, 0.74rem + 0.55vw, 1.3rem) clamp(1.06rem, 0.68rem + 0.78vw, 1.52rem);
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1366px) {
+    #experience .timeline {
+        --timeline-axis-offset: clamp(3.5rem, 8.5vw, 6.8rem);
+    }
+
+    #experience .timeline-item {
+        grid-template-columns: minmax(1.7rem, clamp(2.4rem, 6.8vw, 5.6rem)) 1.25rem minmax(0, 1fr);
+        gap: clamp(0.62rem, 0.5rem + 0.33vw, 0.84rem);
+    }
+
+    #experience .timeline-card {
+        width: min(100%, 82ch);
     }
 }
 
