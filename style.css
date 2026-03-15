@@ -18,8 +18,8 @@
     --radius-lg: 1rem;
     --radius-pill: 999px;
 
-    --shadow-sm: 0 2px 12px rgba(2, 12, 24, 0.25);
-    --shadow-md: 0 8px 24px rgba(2, 12, 24, 0.35);
+    --shadow-sm: 0 1px 6px rgba(2, 12, 24, 0.18);
+    --shadow-md: 0 4px 14px rgba(2, 12, 24, 0.24);
 
     --space-2xs: clamp(0.2rem, 0.18rem + 0.12vw, 0.3rem);
     --space-xs: clamp(0.4rem, 0.33rem + 0.22vw, 0.56rem);
@@ -56,7 +56,7 @@ html {
 body {
     margin: 0;
     font-family: var(--font-sans);
-    background: linear-gradient(180deg, #0c1727, #0b1522 30%, #0c1624 100%);
+    background: #0c1624;
     color: var(--text);
     line-height: var(--line-height-base);
     font-size: var(--font-size-base);
@@ -157,8 +157,8 @@ a:hover {
     padding: var(--space-lg);
     border: 1px solid color-mix(in srgb, var(--muted), transparent 76%);
     border-radius: var(--radius-lg);
-    background: color-mix(in srgb, var(--surface), transparent 22%);
-    box-shadow: var(--shadow-sm);
+    background: color-mix(in srgb, var(--surface), transparent 14%);
+    box-shadow: none;
 }
 
 .l-section__title {
@@ -534,7 +534,7 @@ a:hover {
 
 
 
-/* 4.3 ter Project list (minimal, aligned with publications rhythm) */
+/* 4.3 ter Project list (minimal blocks + standardized CTAs) */
 .project-list {
     list-style: none;
     padding-left: 0;
@@ -546,20 +546,44 @@ a:hover {
 
 .project-item {
     margin: 0;
-    padding: var(--space-sm) 0;
-    border-bottom: 1px solid color-mix(in srgb, var(--muted), transparent 78%);
+    padding: var(--space-md);
+    border: 1px solid color-mix(in srgb, var(--muted), transparent 68%);
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--surface-2), transparent 32%);
 }
 
-.project-item:last-child {
-    border-bottom: 0;
+.project-item__title {
+    margin-bottom: var(--space-2xs);
 }
 
-.project-item p {
-    margin: 0;
+.project-item__description {
+    margin-bottom: var(--space-sm);
 }
 
-.project-item a {
-    margin-left: 0.35rem;
+.project-item__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.project-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2rem;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--accent), transparent 42%);
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--accent), transparent 82%);
+    color: #ffffff;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.project-cta:hover {
+    text-decoration: none;
+    background: color-mix(in srgb, var(--accent), transparent 72%);
 }
 
 .project-item,
@@ -571,7 +595,7 @@ a:hover {
     max-width: 100%;
 }
 
-.project-item a:focus-visible,
+.project-cta:focus-visible,
 .c-secondary-link:focus-visible,
 .pub-profile-link a:focus-visible,
 .about-hero__links a:focus-visible {
@@ -596,8 +620,8 @@ a:hover {
     top: 0.2rem;
     bottom: 0.2rem;
     width: 2px;
-    background: linear-gradient(180deg, #9ed6ff 0%, #2ca6ff 45%, #7fd0ff 100%);
-    box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent), transparent 70%);
+    background: color-mix(in srgb, var(--accent), transparent 25%);
+    box-shadow: none;
 }
 
 .timeline-item {
@@ -613,7 +637,7 @@ a:hover {
     border-radius: 50%;
     border: 2px solid #dff3ff;
     background: var(--accent);
-    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent), transparent 80%);
+    box-shadow: none;
 }
 
 .timeline-card {
@@ -621,8 +645,8 @@ a:hover {
     padding: var(--space-md);
     border-radius: var(--radius-md);
     border: 1px solid color-mix(in srgb, #c3dfff, transparent 40%);
-    background: linear-gradient(165deg, #173150 0%, #122a45 58%, #0f2239 100%);
-    box-shadow: var(--shadow-sm);
+    background: color-mix(in srgb, var(--surface), #091523 24%);
+    box-shadow: none;
 }
 
 .timeline-card h3 {
@@ -939,6 +963,15 @@ a:hover {
 
     .contact-link {
         padding: 0.64rem 0.86rem;
+    }
+
+    .project-item__links {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .project-cta {
+        width: 100%;
     }
 
     .pub-links {
