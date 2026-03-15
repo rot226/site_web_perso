@@ -2,6 +2,10 @@
    1) TOKENS DE DESIGN
    ========================================================= */
 :root {
+    --font-sans: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-base: 0.95rem;
+    --line-height-base: 1.6;
+
     --bg: #0c1624;
     --surface: #122338;
     --surface-2: #162b44;
@@ -17,20 +21,20 @@
     --shadow-sm: 0 2px 12px rgba(2, 12, 24, 0.25);
     --shadow-md: 0 8px 24px rgba(2, 12, 24, 0.35);
 
-    --space-2xs: clamp(0.22rem, 0.18rem + 0.18vw, 0.34rem);
-    --space-xs: clamp(0.44rem, 0.35rem + 0.3vw, 0.64rem);
-    --space-sm: clamp(0.66rem, 0.57rem + 0.47vw, 0.86rem);
-    --space-md: clamp(0.88rem, 0.75rem + 0.68vw, 1.2rem);
-    --space-lg: clamp(1.28rem, 1.02rem + 1.1vw, 1.8rem);
-    --space-xl: clamp(1.7rem, 1.28rem + 1.7vw, 2.55rem);
-    --space-2xl: clamp(2.1rem, 1.45rem + 2.4vw, 3.4rem);
+    --space-2xs: clamp(0.2rem, 0.18rem + 0.12vw, 0.3rem);
+    --space-xs: clamp(0.4rem, 0.33rem + 0.22vw, 0.56rem);
+    --space-sm: clamp(0.6rem, 0.5rem + 0.34vw, 0.8rem);
+    --space-md: clamp(0.8rem, 0.65rem + 0.5vw, 1.08rem);
+    --space-lg: clamp(1.05rem, 0.85rem + 0.8vw, 1.5rem);
+    --space-xl: clamp(1.4rem, 1.08rem + 1.25vw, 2.05rem);
+    --space-2xl: clamp(1.8rem, 1.25rem + 1.9vw, 2.8rem);
 
-    --fs-xs: clamp(0.72rem, 0.68rem + 0.18vw, 0.82rem);
-    --fs-sm: clamp(0.8rem, 0.75rem + 0.22vw, 0.92rem);
-    --fs-md: clamp(0.86rem, 0.8rem + 0.3vw, 1.02rem);
-    --fs-lg: clamp(1.04rem, 0.88rem + 0.78vw, 1.52rem);
-    --fs-xl: clamp(1.26rem, 0.98rem + 1.25vw, 1.95rem);
-    --fs-2xl: clamp(1.62rem, 1.08rem + 2.35vw, 2.8rem);
+    --fs-xs: clamp(0.7rem, 0.66rem + 0.16vw, 0.8rem);
+    --fs-sm: clamp(0.78rem, 0.73rem + 0.2vw, 0.9rem);
+    --fs-md: clamp(0.84rem, 0.79rem + 0.24vw, 0.98rem);
+    --fs-lg: clamp(0.98rem, 0.86rem + 0.55vw, 1.28rem);
+    --fs-xl: clamp(1.14rem, 0.95rem + 0.85vw, 1.58rem);
+    --fs-2xl: clamp(1.42rem, 1rem + 1.7vw, 2.2rem);
 
     --container-max: 68rem;
     --page-gutter: clamp(0.9rem, 0.55rem + 1.2vw, 1.6rem);
@@ -51,12 +55,17 @@ html {
 
 body {
     margin: 0;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-sans);
     background: linear-gradient(180deg, #0c1727, #0b1522 30%, #0c1624 100%);
     color: var(--text);
-    line-height: 1.65;
-    font-size: var(--fs-md);
-    overflow-x: clip;
+    line-height: var(--line-height-base);
+    font-size: var(--font-size-base);
+}
+
+img,
+svg,
+video {
+    max-width: 100%;
 }
 
 h1,
@@ -130,8 +139,8 @@ a:hover {
 
 .l-section {
     display: grid;
-    grid-template-columns: minmax(0, var(--section-title-width)) minmax(0, 1fr);
-    column-gap: var(--space-xl);
+    grid-template-columns: 1fr;
+    row-gap: var(--space-sm);
     align-items: start;
     padding: var(--space-lg);
     border: 1px solid color-mix(in srgb, var(--muted), transparent 76%);
@@ -141,10 +150,9 @@ a:hover {
 }
 
 .l-section__title {
-    position: sticky;
-    top: var(--space-lg);
+    position: static;
     color: #ffffff;
-    margin-bottom: 0;
+    margin-bottom: var(--space-xs);
 }
 
 .l-section__content {
@@ -292,6 +300,8 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: var(--space-lg);
     padding: var(--space-xl);
     background: linear-gradient(135deg, #123051 0%, #10263f 55%, #0d1f35 100%);
@@ -336,8 +346,8 @@ a:hover {
 
 .about-layout {
     display: grid;
-    grid-template-columns: minmax(15rem, 20rem) minmax(0, 1fr);
-    gap: var(--space-lg);
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
     margin-bottom: var(--space-lg);
 }
 
@@ -408,8 +418,8 @@ a:hover {
 
 .about-subsections {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-lg);
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
 }
 
 .about-subsection ul {
@@ -579,10 +589,11 @@ a:hover {
 /* 4.4 Contact */
 .contact-card {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: flex-start;
-    gap: var(--space-lg);
-    padding: var(--space-lg);
+    gap: var(--space-sm);
+    padding: var(--space-md);
     border: 1px solid color-mix(in srgb, var(--muted), transparent 65%);
     border-radius: var(--radius-lg);
     background: linear-gradient(145deg, color-mix(in srgb, var(--surface), transparent 6%), color-mix(in srgb, var(--surface-2), transparent 6%));
@@ -605,6 +616,8 @@ a:hover {
     font-weight: 600;
     line-height: 1;
     transition: transform 0.2s ease, background-color 0.2s ease;
+    width: 100%;
+    justify-content: center;
 }
 
 .contact-link:hover {
@@ -645,7 +658,12 @@ a:hover {
 /* =========================================================
    5) MEDIA QUERIES
    ========================================================= */
-@media (min-width: 48.0625rem) {
+@media (min-width: 577px) and (max-width: 991px) {
+    :root {
+        --font-size-base: 0.97rem;
+        --section-title-width: clamp(7rem, 16vw, 9rem);
+    }
+
     .c-header__menu-toggle {
         display: none;
     }
@@ -664,119 +682,108 @@ a:hover {
         opacity: 1;
         overflow: visible;
     }
-}
-
-@media (max-width: 72rem) {
-    .l-section {
-        grid-template-columns: minmax(0, clamp(7rem, 18vw, 9.5rem)) minmax(0, 1fr);
-    }
-}
-
-@media (max-width: 48rem) {
-    .c-header { margin-top: var(--space-sm); }
-
-    .c-hero {
-        text-align: center;
-        padding: var(--space-lg);
-    }
-
-    .l-page-main {
-        padding-block: var(--space-xl);
-    }
 
     .l-section {
-        grid-template-columns: 1fr;
-        row-gap: var(--space-sm);
-        padding: var(--space-lg);
+        grid-template-columns: minmax(0, var(--section-title-width)) minmax(0, 1fr);
+        column-gap: var(--space-lg);
+        row-gap: 0;
     }
 
-    .about-layout,
+    .about-layout {
+        grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr);
+        gap: var(--space-lg);
+    }
+
     .about-subsections {
-        grid-template-columns: 1fr;
-        gap: var(--space-md);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .l-section__title {
-        position: static;
-        margin-bottom: var(--space-sm);
-    }
-
-    .l-section__content,
-    .project-list,
-    .pub-list {
-        max-width: 100%;
-    }
-
-    .pub-item {
-        padding: var(--space-sm);
-    }
-
-    .pub-links {
-        gap: 0.45rem;
-    }
-
-    .c-secondary-link {
-        min-height: 2.15rem;
-        padding-inline: 0.78rem;
-    }
-
-    .timeline {
-        padding-left: 1.7rem;
-        gap: var(--space-md);
-    }
-
-    .timeline::before {
-        left: 0.5rem;
-    }
-
-    .timeline-marker {
-        left: -1.25rem;
-        top: 0.95rem;
-    }
-
-    .timeline-card {
-        max-width: 100%;
-        padding: var(--space-sm) var(--space-md);
-    }
-
-    .timeline-card__meta {
-        line-height: 1.45;
-    }
-
-    .contact-card {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: var(--space-md);
-        gap: var(--space-sm);
-    }
-
-    .contact-link {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-
-@media (max-width: 64rem) {
-    .l-section {
-        grid-template-columns: minmax(0, 8.2rem) minmax(0, 1fr);
-        column-gap: var(--space-lg);
+        position: sticky;
+        top: var(--space-lg);
+        margin-bottom: 0;
     }
 
     .l-section__content {
         max-width: 100%;
     }
 
-    .timeline-card {
-        max-width: 100%;
-    }
-
     .contact-card {
+        flex-direction: row;
+        align-items: center;
         gap: var(--space-md);
     }
 
-    .pub-links {
-        row-gap: var(--space-xs);
+    .contact-link {
+        width: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    :root {
+        --font-size-base: 1rem;
+        --section-title-width: clamp(8rem, 13vw, 11.2rem);
+    }
+
+    .c-header__menu-toggle {
+        display: none;
+    }
+
+    .c-nav {
+        width: auto;
+    }
+
+    .c-nav__list,
+    .c-nav.c-nav--open .c-nav__list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: var(--space-xs);
+        max-height: none;
+        opacity: 1;
+        overflow: visible;
+    }
+
+    .c-hero {
+        text-align: left;
+        justify-content: flex-start;
+    }
+
+    .l-section {
+        grid-template-columns: minmax(0, var(--section-title-width)) minmax(0, 1fr);
+        column-gap: var(--space-xl);
+        row-gap: 0;
+    }
+
+    .about-layout {
+        grid-template-columns: minmax(15rem, 20rem) minmax(0, 1fr);
+        gap: var(--space-lg);
+    }
+
+    .about-subsections {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-lg);
+    }
+
+    .l-section__title {
+        position: sticky;
+        top: var(--space-lg);
+        margin-bottom: 0;
+    }
+
+    .l-section__content {
+        max-width: 66ch;
+    }
+
+    .contact-card {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-lg);
+        padding: var(--space-lg);
+    }
+
+    .contact-link {
+        width: auto;
     }
 }
 
@@ -801,14 +808,6 @@ a:hover {
         left: -1.12rem;
         width: 0.84rem;
         height: 0.84rem;
-    }
-
-    .pub-item,
-    #experience .l-section__content li,
-    #publications .l-section__content li,
-    .contact-card,
-    .l-section {
-        padding: var(--space-md);
     }
 
     .contact-link {
