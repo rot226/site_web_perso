@@ -155,6 +155,7 @@ PY
 
 - Conseillé : tester régulièrement les URLs externes (GitHub, LinkedIn, IEEE, Netlify) depuis un environnement ayant accès Internet sortant.
 - En CI/terminal restreint, un blocage réseau peut produire de faux négatifs.
+- URL officielle LoRaFlexSim à conserver dans le site : `https://loraflexsim.org` (et remplacer tout ancien domaine résiduel).
 
 ## Mini checklist “avant déploiement Netlify”
 
