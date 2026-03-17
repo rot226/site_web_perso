@@ -97,6 +97,14 @@ Ces variables pilotent la majorité des `gap`, `padding`, `margin`.
 - Fichier image : `images/identite_sanou.jpg`
 - Référence HTML : `<img class="about-hero__image" src="images/identite_sanou.jpg" ...>` dans `index.html`.
 
+## Favicon (maintenance)
+
+- **Source unique** : `assets/favicon.png`.
+- **Fichiers HTML à maintenir** : `index.html`, `contact.html`, `experience.html`, `projects.html`, `publications.html`.
+- **Versioning recommandé** : ajouter/mettre à jour `?v=...` sur les URLs du favicon (ex. `assets/favicon.png?v=20260317`) à chaque changement d’image.
+- **Vérification rapide navigateur** : ouvrir `index.html` puis les 4 pages legacy, confirmer l’icône dans l’onglet, puis refaire un test après mise à jour de la version `?v=...`.
+- **Rappel Windows 11** : pendant les tests, faire un hard refresh (`Ctrl+F5`) et vider le cache navigateur si l’ancienne icône persiste.
+
 ### Liens sociaux
 
 Dans `index.html` :
