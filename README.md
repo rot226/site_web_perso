@@ -105,6 +105,27 @@ Ces variables pilotent la majorité des `gap`, `padding`, `margin`.
 - **Vérification rapide navigateur** : ouvrir `index.html` puis les 4 pages legacy, confirmer l’icône dans l’onglet, puis refaire un test après mise à jour de la version `?v=...`.
 - **Rappel Windows 11** : pendant les tests, faire un hard refresh (`Ctrl+F5`) et vider le cache navigateur si l’ancienne icône persiste.
 
+### Validation automatique des conventions `<head>`
+
+Un script Python dédié permet de sécuriser les futures modifications sur toutes les pages `*.html` à la racine.
+
+Fichier : `scripts/validate_head_conventions.py`
+
+Vérifications effectuées (échec si un seul point manque sur une page) :
+- présence de `rel="icon"` pointant vers `assets/favicon.png` (avec ou sans query string),
+- présence de `rel="shortcut icon"`,
+- présence de `rel="apple-touch-icon"`,
+- présence de `meta name="theme-color"`,
+- présence de `rel="manifest"`.
+
+Exécution locale :
+
+```bash
+python3 scripts/validate_head_conventions.py
+```
+
+Le script retourne un code de sortie `1` si une convention n’est pas respectée, ce qui le rend exploitable en CI.
+
 ### Liens sociaux
 
 Dans `index.html` :
