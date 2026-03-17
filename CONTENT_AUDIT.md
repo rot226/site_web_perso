@@ -16,7 +16,7 @@
 - **Liens externes principaux** :
   - LinkedIn : `https://www.linkedin.com/in/francois-d-assise-sanou-a57066200/`
   - GitHub : `https://github.com/sanoufrancois226-crypto`
-  - LoRaFlexSim : `https://loraflexsim.netlify.app/`
+  - LoRaFlexSim : `https://loraflexsim.org`
   - IEEE (publications):
     - `https://ieeexplore.ieee.org/abstract/document/10812147`
     - `https://ieeexplore.ieee.org/abstract/document/11304034`
@@ -90,6 +90,6 @@ URLs demandées détectées et marquées à conserver :
 - LinkedIn : `https://www.linkedin.com/in/francois-d-assise-sanou-a57066200/`
 - GitHub : `https://github.com/sanoufrancois226-crypto`
 - IEEE (plusieurs documents : 10812147, 11304034, 11323245, 11418870)
-- Site LoRaFlexSim : `https://loraflexsim.netlify.app/`
+- Site LoRaFlexSim : `https://loraflexsim.org`
 
 Aucune modification appliquée à ces URLs dans cet audit.
